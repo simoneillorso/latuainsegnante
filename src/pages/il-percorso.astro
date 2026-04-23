@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { PercorsoHero } from '@/components/percorso/PercorsoHero';
+import { PercorsoJourney } from '@/components/percorso/PercorsoJourney';
+import { PercorsoCta } from '@/components/percorso/PercorsoCta';
+
+const title = 'Il percorso — dalla prenotazione al traguardo · latuainsegnante.com';
+const description =
+  'Scopri come funziona il percorso con Debora Vichi: dal primo messaggio alla diagnosi, al piano su misura, alle lezioni settimanali, fino al tuo traguardo.';
+---
+
+<BaseLayout title={title} description={description} activeNav="Il percorso">
+  <PercorsoHero />
+  <PercorsoJourney />
+  <PercorsoCta />
+</BaseLayout>

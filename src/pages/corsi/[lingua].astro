@@ -1,0 +1,130 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Breadcrumb } from '@/components/course/Breadcrumb';
+import { CourseHero } from '@/components/course/CourseHero';
+import { ForWhom } from '@/components/course/ForWhom';
+import { Curriculum } from '@/components/course/Curriculum';
+import { Outcomes } from '@/components/course/Outcomes';
+import { CourseTeacher } from '@/components/course/CourseTeacher';
+import { CourseReviews } from '@/components/course/CourseReviews';
+import { CourseFAQ } from '@/components/course/CourseFAQ';
+import { RelatedCourses } from '@/components/course/RelatedCourses';
+import { CourseFinalCta } from '@/components/course/CourseFinalCta';
+import { LANGS, type Language } from '@/data/languages';
+import type { CourseData } from '@/data/course-types';
+
+type CourseModule = CourseData;
+
+export async function getStaticPaths() {
+  const modules = import.meta.glob<CourseModule>('../../data/course-*.ts', { eager: true });
+  return LANGS.map((l) => {
+    const mod = modules[`../../data/course-${l.slug}.ts`];
+    if (!mod) {
+      throw new Error(`Dati corso mancanti per la lingua "${l.slug}". Crea src/data/course-${l.slug}.ts.`);
+    }
+    return {
+      params: { lingua: l.slug },
+      props: {
+        lang: l,
+        COURSE: mod.COURSE,
+        LESSONS: mod.LESSONS,
+        LESSON_EXTRAS: mod.LESSON_EXTRAS,
+        FOR_WHOM: mod.FOR_WHOM,
+        OUTCOMES: mod.OUTCOMES,
+        TEACHER_STATS: mod.TEACHER_STATS,
+        COURSE_REVIEWS: mod.COURSE_REVIEWS,
+        FAQ_COURSE: mod.FAQ_COURSE,
+        RELATED_COURSES: mod.RELATED_COURSES,
+        HERO_TITLE: mod.HERO_TITLE,
+      },
+    };
+  });
+}
+
+type Props = {
+  lang: Language;
+} & CourseData;
+
+const {
+  lang,
+  COURSE,
+  LESSONS,
+  LESSON_EXTRAS,
+  FOR_WHOM,
+  OUTCOMES,
+  TEACHER_STATS,
+  COURSE_REVIEWS,
+  FAQ_COURSE,
+  RELATED_COURSES,
+  HERO_TITLE,
+} = Astro.props;
+
+const title = `${COURSE.title} — latuainsegnante.com`;
+const description = COURSE.subtitle;
+
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Corsi', href: '/corsi/' },
+  { label: lang.label },
+];
+
+const courseJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Course',
+  name: COURSE.title,
+  description,
+  provider: {
+    '@type': 'Person',
+    name: 'Debora Vichi',
+    url: 'https://latuainsegnante.com/chi-sono',
+  },
+  inLanguage: 'it',
+  teaches: `${lang.en} (${lang.label}) — ${COURSE.eyebrow}`,
+  educationalLevel: COURSE.level,
+  numberOfCredits: LESSONS.length,
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: String(COURSE.rating),
+    reviewCount: String(COURSE.reviews),
+  },
+  offers: {
+    '@type': 'Offer',
+    price: String(COURSE.price),
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+  },
+  hasCourseInstance: {
+    '@type': 'CourseInstance',
+    courseMode: 'Online & In-person',
+    location: 'Firenze, Italia',
+  },
+};
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ_COURSE.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.a,
+    },
+  })),
+};
+
+const jsonLd = [courseJsonLd, faqJsonLd];
+---
+
+<BaseLayout title={title} description={description} activeNav="Lingue" jsonLd={jsonLd}>
+  <Breadcrumb items={crumbs} />
+  <CourseHero client:load course={COURSE} langSlug={lang.slug} heroTitle={HERO_TITLE} />
+  <ForWhom items={FOR_WHOM} />
+  <Curriculum client:visible lessons={LESSONS} extras={LESSON_EXTRAS} />
+  <Outcomes outcomes={OUTCOMES} />
+  <CourseTeacher stats={TEACHER_STATS} />
+  <CourseReviews reviews={COURSE_REVIEWS} rating={COURSE.rating} reviewCount={COURSE.reviews} />
+  <CourseFAQ client:visible faq={FAQ_COURSE} />
+  <RelatedCourses items={RELATED_COURSES} />
+  <CourseFinalCta />
+</BaseLayout>

@@ -1,0 +1,146 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Eyebrow } from '@/components/shared/Eyebrow';
+import { ContactForm } from '@/components/ContactForm';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contattami — Debora Vichi",
+  "description": "Scrivi a Debora Vichi per info su lezioni private di lingue a Latina o online.",
+  "url": "https://latuainsegnante.com/contattami",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Debora Vichi",
+    "jobTitle": "Insegnante di lingue",
+    "telephone": "+39-333-000-0000",
+    "email": "ciao@latuainsegnante.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Latina",
+      "addressCountry": "IT"
+    }
+  }
+};
+---
+
+<BaseLayout
+  title="Contattami — Debora Vichi · Insegnante di lingue a Latina"
+  description="Hai domande su lezioni private di lingue? Scrivimi: rispondo entro 24 ore con disponibilità e dettagli sul percorso."
+  canonical="https://latuainsegnante.com/contattami"
+  activeNav="Contattami"
+  jsonLd={jsonLd}
+>
+  <div class="page">
+
+    <!-- Hero -->
+    <section style="padding: 80px 0 48px;">
+      <Eyebrow color="#9E89FB">Parliamoci</Eyebrow>
+      <h1 style="font-family:Urbanist,sans-serif;font-weight:800;font-size:clamp(48px,7vw,88px);line-height:1;color:#051A2E;letter-spacing:-.03em;margin:14px 0 24px;">
+        Scrivimi.
+        <br />Ti rispondo oggi.
+      </h1>
+      <p style="font-family:Roboto,sans-serif;font-size:18px;color:#3A4F63;line-height:1.6;max-width:600px;margin:0;">
+        Hai una domanda su un corso, vuoi capire qual è la lingua giusta per il tuo obiettivo, o vuoi semplicemente sapere come funziona? Mandami un messaggio.
+      </p>
+    </section>
+
+    <!-- Form + Info grid -->
+    <section style="padding: 0 0 80px;">
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start;">
+
+        <!-- Form -->
+        <ContactForm client:visible />
+
+        <!-- Contact info -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <!-- Email -->
+          <div style="background:#fff;border-radius:24px;padding:28px 28px;box-shadow:0 2px 8px rgba(5,26,46,.06);display:flex;align-items:flex-start;gap:18px;">
+            <div style="width:44px;height:44px;border-radius:14px;background:#E9FA49;display:grid;place-items:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#051A2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:13px;color:#576C80;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Email</div>
+              <a href="mailto:ciao@latuainsegnante.com" style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;text-decoration:none;">
+                ciao@latuainsegnante.com
+              </a>
+              <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;">Rispondo entro 24 ore</div>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div style="background:#fff;border-radius:24px;padding:28px 28px;box-shadow:0 2px 8px rgba(5,26,46,.06);display:flex;align-items:flex-start;gap:18px;">
+            <div style="width:44px;height:44px;border-radius:14px;background:#1CB886;display:grid;place-items:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:13px;color:#576C80;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">WhatsApp</div>
+              <a href="https://wa.me/39333000000" target="_blank" rel="noopener noreferrer" style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;text-decoration:none;">
+                +39 333 000 0000
+              </a>
+              <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;">Messaggio o vocale, come preferisci</div>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div style="background:#fff;border-radius:24px;padding:28px 28px;box-shadow:0 2px 8px rgba(5,26,46,.06);display:flex;align-items:flex-start;gap:18px;">
+            <div style="width:44px;height:44px;border-radius:14px;background:#9E89FB;display:grid;place-items:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:13px;color:#576C80;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Dove</div>
+              <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;">Latina, Italia</div>
+              <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;line-height:1.5;">
+                Lezioni in presenza a Latina<br />o online ovunque nel mondo
+              </div>
+            </div>
+          </div>
+
+          <!-- Orari -->
+          <div style="background:#fff;border-radius:24px;padding:28px 28px;box-shadow:0 2px 8px rgba(5,26,46,.06);display:flex;align-items:flex-start;gap:18px;">
+            <div style="width:44px;height:44px;border-radius:14px;background:#FFAE00;display:grid;place-items:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#051A2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:13px;color:#576C80;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Disponibilità</div>
+              <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;">Lun – Sab</div>
+              <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;line-height:1.5;">
+                8:00 – 21:00<br />Orari flessibili su appuntamento
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Map section -->
+    <section style="padding: 0 0 100px;">
+      <div style="background:#fff;border-radius:32px;overflow:hidden;box-shadow:0 4px 24px rgba(5,26,46,.08);">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47850.19!2d12.8588!3d41.4671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13257ab848e77a13%3A0x4b4cdc79c25e5a70!2sLatina%2C%20LT!5e0!3m2!1sit!2sit!4v1"
+          width="100%"
+          height="400"
+          style="border:0;display:block;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Latina, Italia — sede delle lezioni in presenza"
+        ></iframe>
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>

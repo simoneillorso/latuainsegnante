@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Hero } from '@/components/home/Hero';
+import { TrustStrip } from '@/components/home/TrustStrip';
+import { HowItWorks } from '@/components/home/HowItWorks';
+import { Languages } from '@/components/home/Languages';
+import { WhyDebora } from '@/components/home/WhyDebora';
+import { EasePromises } from '@/components/home/EasePromises';
+import { Testimonials } from '@/components/home/Testimonials';
+import { Pricing } from '@/components/home/Pricing';
+import { FAQ } from '@/components/home/FAQ';
+import { FinalCta } from '@/components/home/FinalCta';
+
+const title = 'Debora Vichi · La tua insegnante di lingue — latuainsegnante.com';
+const description =
+  'Lezioni private 1-a-1 di inglese, spagnolo, francese, tedesco e altre sei lingue. Con Debora Vichi, a Latina o online.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'latuainsegnante.com — Debora Vichi',
+  description,
+  image: 'https://latuainsegnante.com/assets/hero-debora.png',
+  url: 'https://latuainsegnante.com',
+  telephone: '+39 055 000 0000',
+  email: 'ciao@latuainsegnante.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Latina',
+    addressCountry: 'IT',
+  },
+  areaServed: 'Italy',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '500',
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  activeNav="Home"
+  jsonLd={jsonLd}
+  preloadImage="/assets/hero-debora.png"
+>
+  <Hero client:load />
+  <TrustStrip />
+  <HowItWorks />
+  <Languages client:visible />
+  <WhyDebora />
+  <EasePromises />
+  <Testimonials client:visible />
+  <Pricing />
+  <FAQ client:visible />
+  <FinalCta client:visible />
+</BaseLayout>

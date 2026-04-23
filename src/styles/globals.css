@@ -1,0 +1,135 @@
+/* Shared utility classes, shell layout, keyframes, and a11y.
+   Extracted from the <style> blocks of the legacy HTML pages. */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #C9DCF1;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Skip link — visible only when focused */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: #051A2E;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 0 0 12px 0;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* Page container — matches legacy .page */
+.page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 32px 0;
+}
+
+/* Primary CTA — yellow pill, teal hover */
+.btn-primary {
+  background: #E9FA49;
+  color: #051A2E;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: background .22s cubic-bezier(.2,.8,.2,1),
+              color .22s,
+              transform .12s,
+              box-shadow .22s;
+}
+.btn-primary:hover {
+  background: #1CB886;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(28,184,134,.35);
+}
+.btn-primary:active {
+  transform: translateY(1px) scale(.99);
+}
+
+/* Ghost CTA — outlined navy */
+.btn-ghost {
+  background: transparent;
+  color: #051A2E;
+  font-family: 'Urbanist', sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 99px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px #051A2E;
+  transition: background .22s, color .22s, transform .12s;
+}
+.btn-ghost:hover {
+  background: #051A2E;
+  color: #fff;
+}
+
+/* Keyframes used across hero, flags, and section intro animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--rot,0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--rot,0deg)); }
+}
+@keyframes blob {
+  0%, 100% { border-radius: 56% 44% 52% 48% / 60% 58% 42% 40%; }
+  33% { border-radius: 48% 52% 58% 42% / 52% 48% 52% 48%; }
+  66% { border-radius: 60% 40% 44% 56% / 56% 62% 38% 44%; }
+}
+@keyframes pop {
+  0% { transform: translateY(6px) scale(.8); opacity: 0; }
+  60% { transform: translateY(-2px) scale(1.05); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+section {
+  animation: fadeUp .6s cubic-bezier(.2,.8,.2,1) both;
+}
+
+::selection {
+  background: #E9FA49;
+  color: #051A2E;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #9E89FB !important;
+  background: #fff !important;
+}
+
+/* Accessible focus ring for keyboard users */
+:focus-visible {
+  outline: 3px solid #9E89FB;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  section {
+    animation: none !important;
+  }
+}

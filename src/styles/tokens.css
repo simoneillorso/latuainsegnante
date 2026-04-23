@@ -1,0 +1,186 @@
+/* ============================================================
+ * latuainsegnante — Design tokens
+ * Extracted from Elementor kit (post-215.css) + site inspection.
+ * Language tutoring brand for Debora Vichi.
+ * ============================================================ */
+
+/* Fonts preloaded in BaseLayout.astro (Urbanist + Roboto + Roboto Slab). */
+
+:root {
+  /* =============== COLOR — BRAND =============== */
+  --color-primary:     #051A2E; /* deep navy — headings, logo, primary text */
+  --color-secondary:   #9E89FB; /* lavender — accent, hover links in menu */
+  --color-accent:      #E9FA49; /* electric lime/yellow — buttons, highlights */
+  --color-text:        #3A4F63; /* cool slate — body copy */
+
+  /* =============== COLOR — SEMANTIC =============== */
+  --color-success:     #1CB886; /* teal-green — success, button-hover fill */
+  --color-magenta:     #FF09AD; /* hot pink — playful accent */
+  --color-warning:     #FFAE00; /* amber — warning, highlight */
+  --color-muted-text:  #576C80; /* secondary/meta text */
+
+  /* =============== COLOR — NEUTRALS =============== */
+  --color-neutral-50:  #F4F7FA; /* app surface */
+  --color-neutral-100: #E7EFF8; /* card surface */
+  --color-neutral-200: #C9DCF1; /* subtle bg, section fills */
+  --color-white:       #FFFFFF;
+  --color-transparent: #FFFFFF00;
+
+  /* Construction/marketing page also uses a softer cloud tone */
+  --color-cloud-blue:  #B0E0E9;
+  --color-deep-teal:   #226D7A; /* line art color */
+  --color-teal-accent: #22B8D1; /* illustration highlight */
+
+  /* =============== TYPOGRAPHY — FAMILIES =============== */
+  --font-display: 'Urbanist', 'Inter', system-ui, sans-serif; /* H1–H6, buttons, nav */
+  --font-body:    'Roboto', system-ui, sans-serif;            /* paragraph body */
+  --font-serif:   'Roboto Slab', Georgia, serif;              /* "secondary" display */
+
+  /* =============== TYPOGRAPHY — SCALE (Urbanist, per kit) =============== */
+  /* Values match Elementor's rem ladder. Kit uses 1rem=16px. */
+  --fs-xxl:  15rem;    /* 240px — huge hero numerals (elementor 3c752d3) */
+  --fs-h1:   4rem;     /* 64px  (3.5rem on tablet) */
+  --fs-h2:   3.25rem;  /* 52px  (2.75rem on tablet) */
+  --fs-h3:   2.75rem;  /* 44px  (2rem on tablet) */
+  --fs-h4:   2rem;     /* 32px  (1.5rem on tablet) */
+  --fs-h5:   1.5rem;   /* 24px  (1.25rem on tablet) */
+  --fs-h6:   1.25rem;  /* 20px  (1.125rem on tablet) */
+  --fs-lead: 1.125rem; /* 18px */
+  --fs-base: 1rem;     /* 16px — body (weight 500, line 1.6) */
+  --fs-sm:   0.875rem; /* 14px */
+  --fs-xs:   0.75rem;  /* 12px */
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600; /* default for headings */
+  --fw-bold:    700;
+  --fw-black:   800;
+
+  --lh-tight:  1.2em;
+  --lh-body:   1.6em;
+
+  /* =============== RADIUS / SHAPE =============== */
+  --radius-sm:     8px;
+  --radius-md:     16px;
+  --radius-lg:     24px;
+  --radius-xl:     40px;
+  --radius-pill:   99px;   /* default button radius (per kit) */
+  --radius-blob:   50% 50% 50% 50% / 60% 60% 40% 40%; /* organic hero masks */
+
+  /* =============== SPACING (8pt grid) =============== */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px; /* kit default widget spacing */
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* container max widths (per kit) */
+  --container-xl: 1280px;
+  --container-lg: 1140px;
+  --container-md: 1024px;
+  --container-sm: 767px;
+
+  /* =============== ELEVATION =============== */
+  --shadow-xs: 0 1px 2px rgba(5,26,46,0.06);
+  --shadow-sm: 0 2px 8px rgba(5,26,46,0.06);
+  --shadow-md: 0 8px 24px rgba(5,26,46,0.08);
+  --shadow-lg: 0 20px 48px rgba(5,26,46,0.12);
+  --shadow-accent: 0 12px 28px rgba(233,250,73,0.45); /* glow around CTAs */
+
+  /* =============== MOTION =============== */
+  --ease-out:  cubic-bezier(.2,.8,.2,1);
+  --ease-soft: cubic-bezier(.4,0,.2,1);
+  --dur-fast:  120ms;
+  --dur-base:  220ms;
+  --dur-slow:  400ms;
+}
+
+/* ============================================================
+ * SEMANTIC RULES — apply tokens to HTML elements
+ * ============================================================ */
+
+html, body {
+  background: var(--color-neutral-200); /* page fallback per kit */
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+h6 { font-size: var(--fs-h6); }
+
+p { margin: 0; }
+
+/* Default button — yellow pill, navy text, teal on hover */
+button, input[type="button"], input[type="submit"], .btn {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-tight);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: background var(--dur-base) var(--ease-out),
+              color var(--dur-base) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+button:hover, .btn:hover,
+input[type="button"]:hover, input[type="submit"]:hover {
+  background: var(--color-success);
+  color: var(--color-white);
+}
+button:active, .btn:active { transform: translateY(1px) scale(0.99); }
+
+/* Button variants */
+.btn-lavender { background: var(--color-secondary); color: var(--color-primary); }
+.btn-lavender:hover { background: var(--color-primary); color: var(--color-white); }
+.btn-ghost    { background: transparent; color: var(--color-primary); box-shadow: inset 0 0 0 2px var(--color-primary); }
+.btn-ghost:hover { background: var(--color-primary); color: var(--color-white); }
+
+/* Link style (matches nav: navy default, lavender hover) */
+a { color: var(--color-primary); text-decoration: none; transition: color var(--dur-base) var(--ease-out); }
+a:hover { color: var(--color-secondary); }
+
+/* Eyebrow (small, uppercase) */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semi);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted-text);
+}
+
+/* Card */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-6);
+}

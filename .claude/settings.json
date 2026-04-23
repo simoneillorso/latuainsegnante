@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p /tmp/design-extract)",
+      "Bash(tar -xzf /Users/ezj/.claude/projects/-Users-ezj-Desktop-latuainsegnante-main/c23a4f37-2a08-46ec-93a6-3e7f0a688622/tool-results/webfetch-1776960730693-g1hfay.bin)",
+      "Bash(rm -rf /tmp/design-extract-2)",
+      "Bash(mkdir -p /tmp/design-extract-2)",
+      "Bash(tar -xzf /Users/ezj/.claude/projects/-Users-ezj-Desktop-latuainsegnante-main/c23a4f37-2a08-46ec-93a6-3e7f0a688622/tool-results/webfetch-1776960846217-dosilq.bin)",
+      "Bash(rm -rf /tmp/design-extract-3)",
+      "Bash(mkdir -p /tmp/design-extract-3)",
+      "Bash(tar -xzf /Users/ezj/.claude/projects/-Users-ezj-Desktop-latuainsegnante-main/c23a4f37-2a08-46ec-93a6-3e7f0a688622/tool-results/webfetch-1776960921560-5wmqpj.bin)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(npm i *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://127.0.0.1:4321/)",
+      "Bash(grep -E '\\\\.\\(yml|yaml|json|toml|config\\)$')",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}

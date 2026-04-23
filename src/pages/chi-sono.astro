@@ -1,0 +1,53 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { AboutHero } from '@/components/about/AboutHero';
+import { AboutNumbers } from '@/components/about/AboutNumbers';
+import { Story } from '@/components/about/Story';
+import { Beliefs } from '@/components/about/Beliefs';
+import { Method } from '@/components/about/Method';
+import { Credentials } from '@/components/about/Credentials';
+import { OffHours } from '@/components/about/OffHours';
+import { AboutCta } from '@/components/about/AboutCta';
+
+const title = 'Chi sono & il metodo — Debora Vichi · latuainsegnante.com';
+const description =
+  'Linguista, esaminatrice certificata, insegnante di nove lingue. La storia di Debora Vichi, il metodo ADPM e le convinzioni che guidano ogni lezione.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Debora Vichi',
+  jobTitle: 'Insegnante di lingue',
+  description:
+    'Linguista, traduttrice ed esaminatrice certificata. Insegna nove lingue con lezioni private 1-a-1 a Latina e online.',
+  image: 'https://latuainsegnante.com/assets/hero-debora.png',
+  url: 'https://latuainsegnante.com/chi-sono',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Latina',
+    addressCountry: 'IT',
+  },
+  knowsLanguage: [
+    'Italian', 'English', 'Spanish', 'French', 'German',
+    'Portuguese', 'Russian', 'Chinese', 'Arabic',
+  ],
+  hasCredential: [
+    'Cambridge CELTA',
+    'DELE C2 · Instituto Cervantes',
+    'Goethe C2 · Goethe-Institut',
+    'DELF C1 · Alliance Française',
+    'Esaminatrice CILS · Università per Stranieri di Siena',
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} activeNav="Chi sono" jsonLd={jsonLd}>
+  <AboutHero />
+  <AboutNumbers />
+  <Story />
+  <Beliefs />
+  <Method client:visible />
+  <Credentials />
+  <OffHours />
+  <AboutCta />
+</BaseLayout>

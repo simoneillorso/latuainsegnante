@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { CourseMenuGrid, type CourseCard } from '@/components/course/CourseMenuGrid';
+import { CourseFinalCta } from '@/components/course/CourseFinalCta';
+import { LANGS } from '@/data/languages';
+import type { CourseData } from '@/data/course-types';
+
+const modules = import.meta.glob<CourseData>('../../data/course-*.ts', { eager: true });
+
+const courses: CourseCard[] = LANGS.map((lang) => {
+  const mod = modules[`../../data/course-${lang.slug}.ts`];
+  if (!mod) {
+    throw new Error(`Dati corso mancanti per la lingua "${lang.slug}". Crea src/data/course-${lang.slug}.ts.`);
+  }
+  return {
+    lang,
+    price: mod.COURSE.price,
+    level: mod.COURSE.level,
+    eyebrow: mod.COURSE.eyebrow,
+  };
+});
+
+const title = 'Corsi di lingua 1-a-1 — latuainsegnante.com';
+const description =
+  'Dieci lingue, un\'unica insegnante. Scegli il corso di inglese, spagnolo, francese, tedesco, italiano, portoghese, russo, cinese o arabo — lezioni 1-a-1 online o a Firenze.';
+
+const itemListJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: courses.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: `Corso di ${c.lang.label}`,
+    url: `https://latuainsegnante.com/corsi/${c.lang.slug}`,
+  })),
+};
+---
+
+<BaseLayout title={title} description={description} activeNav="Lingue" jsonLd={itemListJsonLd}>
+  <CourseMenuGrid client:load courses={courses} />
+  <CourseFinalCta />
+</BaseLayout>
