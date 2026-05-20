@@ -4,6 +4,8 @@ import { WHY_DEBORA_STATS } from '@/data/home-content';
 export const WhyDebora = () => (
   <section style={{ padding: '80px 0' }}>
     <div
+      className="card-padded-xl"
+      data-reveal=""
       style={{
         background: '#fff',
         borderRadius: 40,
@@ -74,13 +76,26 @@ export const WhyDebora = () => (
         </p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginTop: 32 }}>
-          {WHY_DEBORA_STATS.map((s) => (
-            <div key={s.l}>
-              <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 48, color: '#051A2E', lineHeight: 1, letterSpacing: '-.03em' }}>{s.n}</div>
-              <div style={{ width: 24, height: 4, background: s.c, borderRadius: 99, margin: '10px 0' }} />
-              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80' }}>{s.l}</div>
-            </div>
-          ))}
+          {WHY_DEBORA_STATS.map((s) => {
+            const match = /^(\d+(?:\.\d+)?)(.*)$/.exec(s.n);
+            const target = match ? match[1] : null;
+            const suffix = match ? match[2] : '';
+            return (
+              <div key={s.l}>
+                <div
+                  className="count-up"
+                  data-count={target ?? undefined}
+                  data-count-suffix={suffix || undefined}
+                  data-count-display={s.n}
+                  style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 48, color: '#051A2E', lineHeight: 1, letterSpacing: '-.03em' }}
+                >
+                  {target ? `0${suffix}` : s.n}
+                </div>
+                <div style={{ width: 24, height: 4, background: s.c, borderRadius: 99, margin: '10px 0' }} />
+                <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80' }}>{s.l}</div>
+              </div>
+            );
+          })}
         </div>
 
         <div style={{ display: 'flex', gap: 12, marginTop: 36 }}>

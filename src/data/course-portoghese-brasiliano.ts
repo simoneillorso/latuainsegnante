@@ -26,7 +26,7 @@ export const COURSE: Course = {
   level: 'A1 → B1',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 18,
   price: 400,
   pricePer: 40,

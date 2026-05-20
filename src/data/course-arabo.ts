@@ -26,7 +26,7 @@ export const COURSE: Course = {
   level: 'A0 → A2',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 12,
   price: 500,
   pricePer: 48,
@@ -92,7 +92,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Insegni MSA o dialetto?', a: 'Il corso insegna MSA (Modern Standard Arabic). È la base per leggere, scrivere e capire i media. La lezione 9 introduce i dialetti; se ti interessa uno specifico (egiziano, levantino), lo approfondiamo in un percorso successivo.' },
   { q: 'L\'alfabeto è il mio incubo. Quanto ci mettiamo?', a: 'Nelle prime 3 lezioni lo vediamo a fondo. Con esercizi tra le lezioni (20 min al giorno) è fattibile. Se ti serve di più, estendiamo.' },
   { q: 'Arriverò davvero a parlare?', a: 'Arriverai a un A2 solido: presentazione, piccola conversazione, leggere testi semplici. Per B1 serve un\'estensione, la pianifichiamo in base ai tuoi obiettivi.' },
-  { q: 'Fai lezioni in presenza?', a: 'Sì, nello studio di Firenze. Oppure online. Spesso alterniamo.' },
+  { q: 'Fai lezioni in presenza?', a: 'Sì, nello studio di Latina. Oppure online. Spesso alterniamo.' },
   { q: 'Rate?', a: 'Sì, due o tre rate senza interessi.' },
 ];
 

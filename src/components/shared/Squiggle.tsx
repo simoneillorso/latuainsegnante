@@ -4,15 +4,17 @@ type Props = {
   color?: string;
   width?: number | string;
   style?: CSSProperties;
+  draw?: boolean;
 };
 
-export const Squiggle = ({ color = '#E9FA49', width = 260, style }: Props) => (
+export const Squiggle = ({ color = '#E9FA49', width = 260, style, draw = true }: Props) => (
   <svg
     viewBox="0 0 260 16"
     width={width}
     height={16}
     preserveAspectRatio="none"
     aria-hidden="true"
+    className={draw ? 'squiggle-draw' : undefined}
     style={{ display: 'block', ...style }}
   >
     <path

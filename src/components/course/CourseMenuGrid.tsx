@@ -167,7 +167,7 @@ export const CourseMenuGrid = ({ courses }: Props) => {
             </span>.
           </h1>
           <p style={{ fontFamily: 'Roboto,sans-serif', fontSize: 18, color: '#3A4F63', lineHeight: 1.6, maxWidth: 600, marginTop: 20 }}>
-            Scegli la lingua da cui ripartire. Ogni corso è un percorso di 12 lezioni 1-a-1, online o a Firenze, su misura del tuo obiettivo reale — che sia il lavoro, un viaggio lungo o tornare a casa con radici più chiare.
+            Scegli la lingua da cui ripartire. Ogni corso è un percorso di 12 lezioni 1-a-1, online o a Latina, su misura del tuo obiettivo reale — che sia il lavoro, un viaggio lungo o tornare a casa con radici più chiare.
           </p>
         </div>
         <div

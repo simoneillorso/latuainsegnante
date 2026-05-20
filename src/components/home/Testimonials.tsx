@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
-import { TESTIMONIALS } from '@/data/home-content';
+import { TESTIMONIALS, TESTIMONIALS_COUNT } from '@/data/home-content';
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]!.toUpperCase())
+    .join('');
 
 export const Testimonials = () => {
   const [idx, setIdx] = useState(0);
@@ -14,6 +22,8 @@ export const Testimonials = () => {
   return (
     <section style={{ padding: '80px 0' }} aria-roledescription="carousel" aria-label="Testimonianze studenti">
       <div
+        className="card-padded-xl"
+        data-reveal=""
         style={{
           background: '#fff',
           borderRadius: 40,
@@ -38,15 +48,32 @@ export const Testimonials = () => {
           />
           <div
             role="img"
-            aria-label={`Foto di ${t.name}`}
+            aria-label={`Recensione di ${t.name}, studente di ${t.lang}`}
             style={{
               position: 'relative',
               borderRadius: 28,
               overflow: 'hidden',
               aspectRatio: '4/5',
-              background: `url('/assets/${t.img}') center/cover`,
+              background: t.color,
+              display: 'grid',
+              placeItems: 'center',
+              transition: 'background .5s',
             }}
           >
+            <span
+              aria-hidden="true"
+              style={{
+                fontFamily: 'Urbanist,sans-serif',
+                fontWeight: 800,
+                fontSize: 120,
+                color: '#051A2E',
+                opacity: 0.9,
+                lineHeight: 1,
+                letterSpacing: '-.02em',
+              }}
+            >
+              {initials(t.name)}
+            </span>
             <div
               style={{
                 position: 'absolute',
@@ -97,7 +124,7 @@ export const Testimonials = () => {
         </div>
 
         <div>
-          <Eyebrow>Testimonianze</Eyebrow>
+          <Eyebrow>{TESTIMONIALS_COUNT} recensioni verificate su Google</Eyebrow>
           <svg viewBox="0 0 48 40" width="56" height="44" aria-hidden="true" style={{ marginTop: 14 }}>
             <path
               d="M0 40V22C0 10 6 2 18 0v8c-6 2-10 6-10 14h10v18H0zM28 40V22c0-12 6-20 18-22v8c-6 2-10 6-10 14h10v18H28z"
@@ -106,6 +133,7 @@ export const Testimonials = () => {
           </svg>
           <blockquote
             aria-live="polite"
+            className="testimonials-quote"
             style={{
               fontFamily: 'Urbanist,sans-serif',
               fontWeight: 600,
@@ -126,14 +154,26 @@ export const Testimonials = () => {
                 width: 54,
                 height: 54,
                 borderRadius: '50%',
-                background: `url('/assets/${t.img}') center/cover`,
+                background: t.color,
                 border: '3px solid #fff',
                 boxShadow: '0 4px 12px rgba(5,26,46,.08)',
+                display: 'grid',
+                placeItems: 'center',
+                fontFamily: 'Urbanist,sans-serif',
+                fontWeight: 800,
+                fontSize: 18,
+                color: '#051A2E',
+                transition: 'background .5s',
               }}
-            />
+            >
+              {initials(t.name)}
+            </div>
             <div>
               <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 16, color: '#051A2E' }}>{t.name}</div>
-              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginTop: 2 }}>{t.role}</div>
+              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
+                <span aria-hidden="true" style={{ color: '#FFAE00', letterSpacing: '1px' }}>★★★★★</span>
+                <span>{t.role}</span>
+              </div>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>

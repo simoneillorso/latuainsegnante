@@ -22,7 +22,22 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(brew --version)",
-      "Bash(brew install *)"
+      "Bash(brew install *)",
+      "Bash(git commit *)",
+      "Bash(sips --help)",
+      "Bash(sips --formats)",
+      "Bash(sips -s format webp hero-debora.png --out /tmp/test-hero.webp)",
+      "Bash(node -e \"try { const s = require\\('/Users/ezj/Desktop/latuainsegnante/main/node_modules/sharp'\\); console.log\\('sharp OK', s.versions\\); } catch\\(e\\) { console.log\\('no sharp:', e.message\\); }\")",
+      "Bash(node -e ' *)",
+      "Bash(grep -oE '<picture>.{0,500}' /Users/ezj/Desktop/latuainsegnante/main/dist/index.html)",
+      "Bash(curl -s http://localhost:4321/ -o /tmp/home.html)",
+      "Bash(curl -s http://localhost:4321/chi-sono -o /tmp/chisono.html)",
+      "Bash(curl -s http://localhost:4321/contattami -o /tmp/contatta.html)",
+      "Bash(curl -s http://localhost:4321/corsi/inglese -o /tmp/corso.html)",
+      "Bash(grep -oE '\\\\.\\(nav-toggle|nav-drawer|hero-grid|hero-visual|hero-portrait|lang-grid|footer-grid|header-pill|pricing-price|hero-card-extra|hero-card-slot|hiw-connector|card-padded-xl\\)[^{]{0,40}\\\\{' /tmp/home.html)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(xargs kill *)",
+      "Bash(grep -oE 'IntersectionObserver[^}]{0,80}' /Users/ezj/Desktop/latuainsegnante/main/dist/index.html)"
     ]
   }
 }

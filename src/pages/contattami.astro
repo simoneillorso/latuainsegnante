@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import { ContactForm } from '@/components/ContactForm';
+import { SITE } from '@/data/site';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -11,14 +12,14 @@ const jsonLd = {
   "url": "https://latuainsegnante.com/contattami",
   "mainEntity": {
     "@type": "Person",
-    "name": "Debora Vichi",
-    "jobTitle": "Insegnante di lingue",
-    "telephone": "+39-333-000-0000",
-    "email": "ciao@latuainsegnante.com",
+    "name": SITE.name,
+    "jobTitle": SITE.tagline,
+    "telephone": SITE.phoneSchema,
+    "email": SITE.email,
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Latina",
-      "addressCountry": "IT"
+      "addressLocality": SITE.city,
+      "addressCountry": SITE.country
     }
   }
 };
@@ -65,10 +66,10 @@ const jsonLd = {
             </div>
             <div>
               <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:13px;color:#576C80;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">Email</div>
-              <a href="mailto:ciao@latuainsegnante.com" style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;text-decoration:none;">
-                ciao@latuainsegnante.com
+              <a href={`mailto:${SITE.email}`} style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;text-decoration:none;">
+                {SITE.email}
               </a>
-              <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;">Rispondo entro 24 ore</div>
+              <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;">{SITE.responseTime}</div>
             </div>
           </div>
 
@@ -81,8 +82,8 @@ const jsonLd = {
             </div>
             <div>
               <div style="font-family:Urbanist,sans-serif;font-weight:700;font-size:13px;color:#576C80;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">WhatsApp</div>
-              <a href="https://wa.me/39333000000" target="_blank" rel="noopener noreferrer" style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;text-decoration:none;">
-                +39 333 000 0000
+              <a href={`https://wa.me/${SITE.whatsappNumber}`} target="_blank" rel="noopener noreferrer" style="font-family:Urbanist,sans-serif;font-weight:700;font-size:16px;color:#051A2E;text-decoration:none;">
+                {SITE.whatsappDisplay}
               </a>
               <div style="font-family:Roboto,sans-serif;font-size:13px;color:#576C80;margin-top:4px;">Messaggio o vocale, come preferisci</div>
             </div>

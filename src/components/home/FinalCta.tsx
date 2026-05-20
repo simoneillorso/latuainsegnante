@@ -21,6 +21,7 @@ export const FinalCta = () => {
   return (
     <section id="prenota" style={{ padding: '80px 0' }}>
       <div
+        className="card-padded-xl"
         style={{
           background: '#E9FA49',
           borderRadius: 40,

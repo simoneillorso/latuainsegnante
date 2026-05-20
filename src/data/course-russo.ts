@@ -26,7 +26,7 @@ export const COURSE: Course = {
   level: 'A0 → A2',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 14,
   price: 460,
   pricePer: 44,
@@ -82,7 +82,7 @@ export const TEACHER_STATS: TeacherStat[] = [
 export const COURSE_REVIEWS: Review[] = [
   { name: 'Andrea T.', role: 'Ricercatore · Mosca (progetto 1 anno)', img: 'image-student-3.jpg', stars: 5, date: '2 mesi fa',
     text: 'Dovevo partire in tre mesi per un anno di lavoro a Mosca. Debora ha impostato il percorso esattamente attorno a questo. Sono arrivato con un russo utile e mi sono integrato in poche settimane.' },
-  { name: 'Silvia V.', role: 'Compagna di un russo · Firenze', img: 'image-student-2.jpg', stars: 5, date: '1 mese fa',
+  { name: 'Silvia V.', role: 'Compagna di un russo · Latina', img: 'image-student-2.jpg', stars: 5, date: '1 mese fa',
     text: 'La suocera non parla inglese. Dopo il corso riesco a reggere una cena di famiglia di 3 ore. Qualche incespicamento sì, ma capisco tutto e rispondo. Miracolo.' },
   { name: 'Nicolò B.', role: 'Appassionato di Dostoevskij', img: 'image-student-4.jpg', stars: 5, date: '3 settimane fa',
     text: 'Obiettivo romantico: leggere Delitto e Castigo in originale. Ancora lontano dal fine, ma adesso so muovermi in russo da turista consapevole. Piano lungo ma chiarissimo.' },

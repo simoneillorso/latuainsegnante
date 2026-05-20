@@ -22,16 +22,18 @@ export const HowItWorks = () => (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24, position: 'relative' }}>
       <svg
         aria-hidden="true"
+        className="hiw-connector"
         style={{ position: 'absolute', top: 70, left: '16%', right: '16%', width: '68%', height: 20, zIndex: 0 }}
         viewBox="0 0 800 20"
         preserveAspectRatio="none"
       >
         <path d="M0 10 Q 200 -20, 400 10 T 800 10" fill="none" stroke="#C9DCF1" strokeWidth="3" strokeDasharray="2 10" strokeLinecap="round" />
       </svg>
-      {HOW_IT_WORKS_STEPS.map((s) => (
+      {HOW_IT_WORKS_STEPS.map((s, i) => (
         <div
           key={s.n}
           className="hiw-card"
+          data-reveal=""
           style={{
             background: '#fff',
             borderRadius: 28,
@@ -40,6 +42,7 @@ export const HowItWorks = () => (
             zIndex: 1,
             boxShadow: '0 2px 8px rgba(5,26,46,.06)',
             transition: 'all .3s cubic-bezier(.2,.8,.2,1)',
+            ['--reveal-delay' as string]: `${i * 90}ms`,
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 22 }}>

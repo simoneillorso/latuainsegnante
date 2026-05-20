@@ -17,9 +17,10 @@ export const EasePromises = () => (
     </div>
 
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20 }}>
-      {EASE_PROMISES.map((it) => (
+      {EASE_PROMISES.map((it, i) => (
         <div
           key={it.title}
+          data-reveal=""
           style={{
             background: '#fff',
             borderRadius: 28,
@@ -27,6 +28,7 @@ export const EasePromises = () => (
             boxShadow: '0 2px 8px rgba(5,26,46,.06)',
             position: 'relative',
             overflow: 'hidden',
+            ['--reveal-delay' as string]: `${i * 80}ms`,
           }}
         >
           <div

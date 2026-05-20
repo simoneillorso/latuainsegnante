@@ -3,6 +3,7 @@ import { CERTIFICATIONS } from '@/data/home-content';
 export const TrustStrip = () => (
   <section style={{ padding: '20px 0 0', marginTop: -20 }} aria-label="Certificazioni">
     <div
+      className="trust-strip"
       style={{
         background: '#fff',
         borderRadius: 99,

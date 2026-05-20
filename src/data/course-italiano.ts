@@ -21,12 +21,12 @@ export const HERO_TITLE: HeroTitle = {
 export const COURSE: Course = {
   eyebrow: 'Italiano L2 · CILS',
   title: 'Italiano per stranieri — vivere, lavorare e sentirsi a casa',
-  subtitle: 'Il corso di italiano per chi è già qui (o sta arrivando). Non solo regole: la lingua che si parla davvero a Firenze, in ufficio, al mercato.',
+  subtitle: 'Il corso di italiano per chi è già qui (o sta arrivando). Non solo regole: la lingua che si parla davvero a Latina, in ufficio, al mercato.',
   lang: 'italiano',
   level: 'A1 → B2',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 68,
   price: 440,
   pricePer: 42,
@@ -80,7 +80,7 @@ export const TEACHER_STATS: TeacherStat[] = [
 ];
 
 export const COURSE_REVIEWS: Review[] = [
-  { name: 'Sarah J.', role: 'Marketing · Londra→Firenze', img: 'image-student-1.jpg', stars: 5, date: '1 mese fa',
+  { name: 'Sarah J.', role: 'Marketing · Londra→Latina', img: 'image-student-1.jpg', stars: 5, date: '1 mese fa',
     text: 'Ho fatto altri corsi di italiano prima. Questo è l\'unico che mi ha insegnato l\'italiano che si parla davvero qui. Il modulo sulla burocrazia mi ha salvato quando ho fatto la partita IVA.' },
   { name: 'Kai W.', role: 'Designer · Berlino', img: 'image-student-4.jpg', stars: 5, date: '2 mesi fa',
     text: 'Lavoro remoto per un\'agenzia a Milano e mi vergognavo di scrivere in italiano. Dopo il corso, mi scrivono i colleghi: "scrivi meglio di molti di noi". Exaggerato ma carino.' },
@@ -92,7 +92,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Non parlo italiano per niente. Posso comunque iniziare?', a: 'Sì. Iniziamo in italiano semplice, con appoggi in inglese/spagnolo/francese solo dove serve davvero. In 4-5 lezioni la bilancia si sposta.' },
   { q: 'Il corso prepara al CILS o CELI?', a: 'Sì, per B1/B2. Per livelli superiori valutiamo un\'estensione. Ti do simulazioni identiche all\'esame reale.' },
   { q: 'Parlate solo italiano durante le lezioni?', a: 'Quasi sempre sì. All\'inizio uso la tua lingua madre come rete di sicurezza sui punti difficili, poi sempre meno.' },
-  { q: 'Posso fare lezioni in presenza a Firenze?', a: 'Certo, nello studio di Firenze. Oppure online. Spesso facciamo mix.' },
+  { q: 'Posso fare lezioni in presenza a Latina?', a: 'Certo, nello studio di Latina. Oppure online. Spesso facciamo mix.' },
   { q: 'Rate di pagamento?', a: 'Sì, due o tre rate senza interessi. Si decide insieme al momento della prenotazione.' },
 ];
 

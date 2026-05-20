@@ -4,7 +4,7 @@ import { LANGS, type Language } from '@/data/languages';
 
 type Filter = 'tutte' | 'popolari';
 
-const LangTile = ({ l }: { l: Language }) => {
+const LangTile = ({ l, delay }: { l: Language; delay: number }) => {
   const [hover, setHover] = useState(false);
   return (
     <a
@@ -12,15 +12,17 @@ const LangTile = ({ l }: { l: Language }) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       aria-label={`Scopri il corso di ${l.label}`}
+      data-reveal=""
       style={{
         background: '#fff',
         borderRadius: 24,
         padding: 16,
         position: 'relative',
         boxShadow: hover ? '0 18px 36px rgba(5,26,46,.12)' : '0 2px 8px rgba(5,26,46,.06)',
-        transform: hover ? 'translateY(-8px) rotate(-1deg)' : 'none',
-        transition: 'all .3s cubic-bezier(.2,.8,.2,1)',
+        transform: hover ? 'translateY(-8px) rotate(-1deg)' : undefined,
+        transition: 'box-shadow .3s cubic-bezier(.2,.8,.2,1), transform .3s cubic-bezier(.2,.8,.2,1)',
         display: 'block',
+        ['--reveal-delay' as string]: `${delay}ms`,
       }}
     >
       {l.popular && (
@@ -105,7 +107,7 @@ export const Languages = () => {
 
   return (
     <section id="lingue" style={{ padding: '80px 0 40px' }}>
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, gap: 40, flexWrap: 'wrap' }}>
+      <div className="lang-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, gap: 40, flexWrap: 'wrap' }}>
         <div style={{ maxWidth: 720 }}>
           <Eyebrow>Dieci lingue</Eyebrow>
           <h2 style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 62, lineHeight: 1.05, color: '#051A2E', letterSpacing: '-.02em', margin: '14px 0 16px' }}>
@@ -152,9 +154,9 @@ export const Languages = () => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18 }}>
-        {filtered.map((l) => (
-          <LangTile key={l.slug} l={l} />
+      <div className="lang-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18 }}>
+        {filtered.map((l, i) => (
+          <LangTile key={l.slug} l={l} delay={i * 50} />
         ))}
       </div>
     </section>

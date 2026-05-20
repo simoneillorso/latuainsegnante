@@ -26,7 +26,7 @@ export const COURSE: Course = {
   level: 'A0 → HSK 2',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 19,
   price: 520,
   pricePer: 48,

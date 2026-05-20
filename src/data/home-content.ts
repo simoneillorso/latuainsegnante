@@ -43,7 +43,6 @@ export const WHY_DEBORA_STATS: Stat[] = [
 ];
 
 export type Testimonial = {
-  img: string;
   name: string;
   role: string;
   lang: string;
@@ -51,16 +50,25 @@ export type Testimonial = {
   quote: string;
 };
 
+// Recensioni reali da Google (profilo Debora Vichi · 92 recensioni).
+// Niente foto stock: la fiducia la dà la recensione verificata, non un volto inventato.
 export const TESTIMONIALS: Testimonial[] = [
-  { img: 'image-student-2.jpg', name: 'Giulia M.', role: 'Product Manager · Londra', lang: 'inglese', color: '#9E89FB',
-    quote: 'In tre mesi ho passato il colloquio a Londra. Debora mi ha dato struttura, fiducia e un inglese che finalmente suona mio.' },
-  { img: 'image-student-4.jpg', name: 'Marco R.', role: 'Architetto · Milano', lang: 'spagnolo', color: '#E9FA49',
-    quote: 'Metodo chiaro, tanta pratica orale, zero ansia. Ora parlo con i colleghi di Madrid senza pensare in italiano.' },
-  { img: 'image-student-1.jpg', name: 'Elena V.', role: 'Studentessa · Berlino', lang: 'tedesco', color: '#FF09AD',
-    quote: 'Avevo paura della grammatica tedesca. Debora l\'ha resa la parte che amo di più. Goethe B2 superato al primo colpo.' },
-  { img: 'image-student-3.jpg', name: 'Lorenzo B.', role: 'Chef · Parigi', lang: 'francese', color: '#1CB886',
-    quote: 'Cercavo un corso che funzionasse con i miei turni. Debora ha trovato il modo. Oggi gestisco la mia brigata in francese.' },
+  { name: 'Rossella C.', role: 'Recensione Google', lang: 'tedesco', color: '#FF09AD',
+    quote: 'Con lei studiare il tedesco è come andare sulle montagne russe: pensi sia spaventoso e alla fine ti diverti e vorresti rifarlo. Rende leggero ogni momento.' },
+  { name: 'Alessia B.', role: 'Recensione Google', lang: 'inglese', color: '#9E89FB',
+    quote: 'Ha colmato lacune che non avevo mai notato, nemmeno avendo fatto il liceo linguistico. Lezioni stimolanti, in vista di un possibile lavoro all\'estero.' },
+  { name: 'Yolette C.', role: 'Recensione Google', lang: 'spagnolo', color: '#E9FA49',
+    quote: 'In 10 lezioni ha insegnato a mio figlio il programma di un anno di spagnolo. Disponibile, professionale e molto divertente. Non c\'è due senza tre!' },
+  { name: 'Vittorio S.', role: 'Recensione Google', lang: 'tedesco', color: '#1CB886',
+    quote: 'Partito da zero col tedesco, col pacchetto ore mi ha portato a un A2 quasi B1, perfetto per il mio scopo. Soddisfatto del lavoro svolto, la consiglio.' },
+  { name: 'Pamela R.', role: 'Recensione Google', lang: 'francese', color: '#9E89FB',
+    quote: 'Le lezioni online di francese per mio figlio hanno dato risultati molto positivi: ha fatto la presentazione e ha preso 9. Straconsigliata!' },
+  { name: 'Simone D.', role: 'Recensione Google', lang: 'cinese', color: '#E9FA49',
+    quote: 'Ottima insegnante di cinese: insieme a lei ho messo le basi per un futuro studio della lingua. Sempre gentile, disponibile e molto preparata.' },
 ];
+
+// Quante recensioni reali esistono (Google) — claim verificabile, usato nel carosello.
+export const TESTIMONIALS_COUNT = 92;
 
 export type PricingPlan = {
   name: string;
@@ -78,40 +86,63 @@ export type PricingPlan = {
 
 export const PRICING_PLANS: PricingPlan[] = [
   {
-    name: 'Singola',
+    name: 'Lezione singola',
     dot: '#9E89FB',
-    price: '€40',
+    price: '€50',
     per: '/ora',
     blurb: 'Quando vuoi, senza impegno.',
     features: [
       'Lezione 1-a-1, online o a Latina',
       'Materiali personalizzati inclusi',
       'Sposti fino a 24h prima',
-      'Report di progresso ogni 4 lezioni',
+      'Nessun vincolo, paghi solo questa',
     ],
     cta: 'Prenota una lezione',
     variant: 'ghost',
   },
   {
-    name: 'Pacchetto 10',
+    name: 'Percorso Intermedio',
     dot: '#E9FA49',
-    price: '€34',
+    price: '€45',
     per: '/ora',
-    blurb: '10 lezioni · risparmi €60 · validi 4 mesi.',
+    blurb: '8 lezioni · €360 · risparmi €40 · valido 3 mesi.',
     features: [
       'Tutto della lezione singola',
       'Piano di studio personalizzato',
       'Accesso al gruppo WhatsApp studenti',
-      'Simulazione esame (se applicabile)',
-      'Garanzia soddisfatti o rimborsati sulle prime 2 lezioni',
+      'Report di progresso ogni 4 lezioni',
     ],
-    cta: 'Inizia con il pacchetto',
+    cta: 'Inizia il percorso',
+    variant: 'ghost',
+    strike: '€50',
+  },
+  {
+    name: 'Percorso Full',
+    dot: '#1CB886',
+    price: '€40',
+    per: '/ora',
+    blurb: '16 lezioni · €640 · risparmi €160 · valido 6 mesi.',
+    features: [
+      'Tutto del Percorso Intermedio',
+      'Simulazione esame (se applicabile)',
+      'Garanzia soddisfatti sulle prime 2 lezioni',
+      'Priorità nella scelta degli orari',
+    ],
+    cta: 'Scegli il percorso Full',
     variant: 'primary',
     dark: true,
     recommended: true,
-    strike: '€40',
+    strike: '€50',
   },
 ];
+
+// Maggiorazione per le lingue meno comuni: +€5 a lezione su ogni tier.
+export const PRICING_SURCHARGE = {
+  langs: ['cinese', 'arabo', 'russo'],
+  perLesson: 5,
+};
+
+export const PRICING_NOTE = 'Cinese, arabo e russo: +€5 a lezione su ogni percorso.';
 
 export type FaqItem = { q: string; a: string };
 

@@ -18,6 +18,7 @@ type FlagProps = {
 const FloatingFlag = ({ slug, top, left, right, size, rot, delay, mouseY, intensity }: FlagProps) => (
   <div
     aria-hidden="true"
+    className="hero-flag"
     style={{
       position: 'absolute',
       top,
@@ -41,6 +42,9 @@ export const Hero = () => {
   const wrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Parallax only on fine-pointer devices (desktop). Skips touch/mobile.
+    if (typeof window === 'undefined') return;
+    if (!window.matchMedia('(pointer: fine)').matches) return;
     const onMove = (e: MouseEvent) => {
       if (!wrapRef.current) return;
       const r = wrapRef.current.getBoundingClientRect();
@@ -51,18 +55,18 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={wrapRef} style={{ position: 'relative', padding: '48px 0 80px' }}>
+    <section ref={wrapRef} className="hero-section" style={{ position: 'relative', padding: '48px 0 80px' }}>
       <FloatingFlag slug="francese" top={40} left={-30} size={68} rot={-12} delay={0} mouseY={mouseY} intensity={30} />
       <FloatingFlag slug="spagnolo" top={280} right={-40} size={74} rot={14} delay={0.4} mouseY={mouseY} intensity={-25} />
       <FloatingFlag slug="tedesco" top={560} left={38} size={56} rot={-8} delay={0.8} mouseY={mouseY} intensity={20} />
 
-      <span aria-hidden="true" style={{ position: 'absolute', top: 160, left: '52%', width: 14, height: 14, borderRadius: '50%', background: '#FF09AD', boxShadow: '0 6px 12px rgba(255,9,173,.3)' }} />
-      <span aria-hidden="true" style={{ position: 'absolute', top: 100, left: '38%', width: 8, height: 8, borderRadius: '50%', background: '#E9FA49' }} />
-      <span aria-hidden="true" style={{ position: 'absolute', top: 500, left: '46%', width: 10, height: 10, borderRadius: '50%', background: '#9E89FB' }} />
+      <span aria-hidden="true" className="hero-dot" style={{ position: 'absolute', top: 160, left: '52%', width: 14, height: 14, borderRadius: '50%', background: '#FF09AD', boxShadow: '0 6px 12px rgba(255,9,173,.3)' }} />
+      <span aria-hidden="true" className="hero-dot" style={{ position: 'absolute', top: 100, left: '38%', width: 8, height: 8, borderRadius: '50%', background: '#E9FA49' }} />
+      <span aria-hidden="true" className="hero-dot" style={{ position: 'absolute', top: 500, left: '46%', width: 10, height: 10, borderRadius: '50%', background: '#9E89FB' }} />
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 2 }}>
-        <div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#fff', borderRadius: 99, padding: '8px 16px 8px 8px', boxShadow: '0 2px 8px rgba(5,26,46,.06)', marginBottom: 28 }}>
+      <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 64, alignItems: 'center', position: 'relative', zIndex: 2 }}>
+        <div className="hero-copy">
+          <div className="hero-pill-with" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, background: '#fff', borderRadius: 99, padding: '8px 16px 8px 8px', boxShadow: '0 2px 8px rgba(5,26,46,.06)', marginBottom: 28 }}>
             <span aria-hidden="true" style={{ width: 28, height: 28, borderRadius: '50%', background: "url('/assets/logo-debora-vichi.png') center/cover" }} />
             <div style={{ fontFamily: 'Urbanist,sans-serif', fontSize: 13, fontWeight: 600, color: '#051A2E' }}>
               Con <span style={{ color: '#1CB886' }}>Debora</span> · lezioni 1-a-1
@@ -70,7 +74,7 @@ export const Hero = () => {
             <Dot color="#1CB886" size={8} style={{ marginLeft: 2, boxShadow: '0 0 0 4px rgba(28,184,134,.18)' }} />
           </div>
 
-          <h1 style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 78, lineHeight: 1, color: '#051A2E', letterSpacing: '-.025em', margin: 0 }}>
+          <h1 className="hero-h1" style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 78, lineHeight: 1, color: '#051A2E', letterSpacing: '-.025em', margin: 0 }}>
             Dì <RotatingGreeting />
             <br />
             alla lingua che
@@ -87,8 +91,8 @@ export const Hero = () => {
             Lezioni private 1-a-1 con <b style={{ color: '#051A2E', fontWeight: 700 }}>Debora Vichi</b> — specialista in dieci lingue. Un metodo cucito su di te, senza libri che mettono ansia e senza orari rigidi.
           </p>
 
-          <div style={{ display: 'flex', gap: 12, marginTop: 36, alignItems: 'center', flexWrap: 'wrap' }}>
-            <a href="#prenota" className="btn-primary" style={{ padding: '20px 30px', fontSize: 15, display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          <div className="hero-ctas" style={{ display: 'flex', gap: 12, marginTop: 36, alignItems: 'center', flexWrap: 'wrap' }}>
+            <a href="#prenota" className="btn-primary cta-breathe" style={{ padding: '20px 30px', fontSize: 15, display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
               Prenota la tua lezione
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12" />
@@ -101,7 +105,7 @@ export const Hero = () => {
             </a>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginTop: 48 }}>
+          <div className="hero-stars" style={{ display: 'flex', alignItems: 'center', gap: 20, marginTop: 48 }}>
             <div style={{ display: 'flex' }}>
               {['image-student-1.jpg', 'image-student-2.jpg', 'image-student-3.jpg', 'image-student-4.jpg'].map((img, i) => (
                 <div
@@ -150,9 +154,10 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div style={{ position: 'relative', minHeight: 640 }}>
+        <div className="hero-visual" style={{ position: 'relative', minHeight: 640 }}>
           <div
             aria-hidden="true"
+            className="hero-blob"
             style={{
               position: 'absolute',
               right: -20,
@@ -166,6 +171,7 @@ export const Hero = () => {
           />
           <div
             aria-hidden="true"
+            className="hero-dot"
             style={{
               position: 'absolute',
               right: -80,
@@ -177,29 +183,35 @@ export const Hero = () => {
               transform: `translateY(${mouseY * -15}px)`,
             }}
           />
-          <svg width="88" height="88" viewBox="0 0 88 88" aria-hidden="true" style={{ position: 'absolute', left: -30, top: 260 }}>
+          <svg width="88" height="88" viewBox="0 0 88 88" aria-hidden="true" className="hero-decor" style={{ position: 'absolute', left: -30, top: 260 }}>
             <circle cx="44" cy="44" r="40" fill="none" stroke="#1CB886" strokeWidth="3" strokeDasharray="3 8" strokeLinecap="round" />
           </svg>
 
-          <img
-            src="/assets/hero-debora.png"
-            alt="Debora Vichi sorride alla camera, ritratto a figura intera"
-            fetchPriority="high"
-            decoding="async"
-            style={{
-              position: 'absolute',
-              right: 0,
-              bottom: -20,
-              height: 700,
-              objectFit: 'contain',
-              zIndex: 2,
-              filter: 'drop-shadow(0 24px 40px rgba(5,26,46,.12))',
-              transform: `translateY(${mouseY * -8}px)`,
-              transition: 'transform .3s ease-out',
-            }}
-          />
+          <picture>
+            <source media="(max-width: 640px)" srcSet="/assets/hero-debora-mobile.webp" type="image/webp" />
+            <source srcSet="/assets/hero-debora.webp" type="image/webp" />
+            <img
+              src="/assets/hero-debora.png"
+              alt="Debora Vichi sorride alla camera, ritratto a figura intera"
+              fetchPriority="high"
+              decoding="async"
+              className="hero-portrait"
+              style={{
+                position: 'absolute',
+                right: 0,
+                bottom: -20,
+                height: 700,
+                objectFit: 'contain',
+                zIndex: 2,
+                filter: 'drop-shadow(0 24px 40px rgba(5,26,46,.12))',
+                transform: `translateY(${mouseY * -8}px)`,
+                transition: 'transform .3s ease-out',
+              }}
+            />
+          </picture>
 
           <div
+            className="hero-card-slot"
             style={{
               position: 'absolute',
               left: -30,
@@ -226,6 +238,7 @@ export const Hero = () => {
           </div>
 
           <div
+            className="hero-card-extra"
             style={{
               position: 'absolute',
               right: -40,
@@ -253,7 +266,7 @@ export const Hero = () => {
             <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 12, color: '#576C80', marginTop: 8 }}>+14 parole questa settimana</div>
           </div>
 
-          <div style={{ position: 'absolute', right: 20, top: -10, zIndex: 3, transform: 'rotate(8deg)' }}>
+          <div className="hero-card-extra" style={{ position: 'absolute', right: 20, top: -10, zIndex: 3, transform: 'rotate(8deg)' }}>
             <div
               style={{
                 background: '#FF09AD',

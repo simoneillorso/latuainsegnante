@@ -1,6 +1,8 @@
 ---
 import '@/styles/tokens.css';
 import '@/styles/globals.css';
+import '@/styles/mobile.css';
+import '@/styles/animations.css';
 import { Header } from '@/components/shell/Header';
 import { Footer } from '@/components/shell/Footer';
 
@@ -12,6 +14,8 @@ type Props = {
   activeNav?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   preloadImage?: string;
+  preloadImageMobile?: string;
+  preloadImageSizes?: string;
 };
 
 const {
@@ -22,6 +26,8 @@ const {
   activeNav = 'Home',
   jsonLd,
   preloadImage,
+  preloadImageMobile,
+  preloadImageSizes,
 } = Astro.props;
 
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site).toString();
@@ -53,7 +59,18 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
 
     <meta name="theme-color" content="#C9DCF1" />
 
-    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    {preloadImage && preloadImageMobile && (
+      <link
+        rel="preload"
+        as="image"
+        imagesrcset={`${preloadImageMobile} 480w, ${preloadImage} 1200w`}
+        imagesizes={preloadImageSizes ?? '(max-width: 640px) 90vw, 520px'}
+        fetchpriority="high"
+      />
+    )}
+    {preloadImage && !preloadImageMobile && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -86,5 +103,53 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     </div>
 
     <Footer />
+
+    <script is:inline>
+      // Scroll-reveal + count-up. Pure DOM, no framework. Respects prefers-reduced-motion.
+      (() => {
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) {
+          document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+          document.querySelectorAll('[data-count]').forEach((el) => {
+            el.textContent = el.getAttribute('data-count-display') || el.getAttribute('data-count') || el.textContent;
+          });
+          return;
+        }
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              const el = entry.target;
+              el.classList.add('is-visible');
+              if (el.hasAttribute('data-count')) runCount(el);
+              io.unobserve(el);
+            }
+          },
+          { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+        );
+
+        document
+          .querySelectorAll('[data-reveal], [data-count], .squiggle-draw')
+          .forEach((el) => io.observe(el));
+
+        function runCount(el) {
+          const target = parseFloat(el.getAttribute('data-count'));
+          if (Number.isNaN(target)) return;
+          const suffix = el.getAttribute('data-count-suffix') || '';
+          const decimals = parseInt(el.getAttribute('data-count-decimals') || '0', 10);
+          const duration = parseInt(el.getAttribute('data-count-duration') || '1400', 10);
+          const start = performance.now();
+          const ease = (t) => 1 - Math.pow(1 - t, 3);
+          const tick = (now) => {
+            const p = Math.min(1, (now - start) / duration);
+            const v = target * ease(p);
+            el.textContent = v.toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      })();
+    </script>
   </body>
 </html>

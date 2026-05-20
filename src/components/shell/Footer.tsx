@@ -1,14 +1,24 @@
+import { SITE } from '@/data/site';
+
 type Column = { h: string; items: string[] };
 
 const COLUMNS: Column[] = [
   { h: 'Lingue', items: ['Inglese', 'Spagnolo', 'Francese', 'Tedesco', 'Italiano L2', 'Vedi tutte'] },
   { h: 'Scopri', items: ['Il metodo', 'Chi sono', 'Prezzi', 'Recensioni', 'Blog'] },
   { h: 'Supporto', items: ['Domande frequenti', 'Prima lezione', 'Prenotazione', 'Politica rimborsi'] },
-  { h: 'Contatti', items: ['ciao@latuainsegnante.com', 'Latina, Italia', '+39 055 000 0000'] },
+  { h: 'Contatti', items: [SITE.email, SITE.address, SITE.whatsappDisplay] },
+];
+
+const SOCIAL: { label: string; href: string }[] = [
+  { label: 'IG', href: SITE.social.instagram },
+  { label: 'FB', href: SITE.social.facebook },
+  { label: 'IN', href: SITE.social.linkedin },
+  { label: 'TT', href: SITE.social.tiktok },
 ];
 
 export const Footer = () => (
   <footer
+    className="footer-root"
     style={{
       marginTop: 120,
       background: '#051A2E',
@@ -18,6 +28,7 @@ export const Footer = () => (
     }}
   >
     <div
+      className="footer-grid"
       style={{
         display: 'grid',
         gridTemplateColumns: '1.4fr 1fr 1fr 1fr 1fr',
@@ -46,11 +57,11 @@ export const Footer = () => (
           Debora Vichi — insegnante di lingue. Lezioni private 1-a-1 in dieci lingue, online o a Latina.
         </p>
         <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-          {(['IG', 'FB', 'IN', 'TT'] as const).map((s) => (
+          {SOCIAL.map((s) => (
             <a
-              key={s}
-              href="#"
-              aria-label={`Debora Vichi su ${s}`}
+              key={s.label}
+              href={s.href}
+              aria-label={`Debora Vichi su ${s.label}`}
               style={{
                 width: 36,
                 height: 36,
@@ -64,7 +75,7 @@ export const Footer = () => (
                 color: '#fff',
               }}
             >
-              {s}
+              {s.label}
             </a>
           ))}
         </div>
@@ -104,6 +115,7 @@ export const Footer = () => (
       ))}
     </div>
     <div
+      className="footer-bottom"
       style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -115,7 +127,7 @@ export const Footer = () => (
         opacity: 0.6,
       }}
     >
-      <div>© {new Date().getFullYear()} Debora Vichi · P.IVA 06123450480</div>
+      <div>© {new Date().getFullYear()} {SITE.name} · P.IVA {SITE.piva}</div>
       <div style={{ display: 'flex', gap: 24 }}>
         <a href="#" style={{ color: '#C9DCF1' }}>Privacy</a>
         <a href="#" style={{ color: '#C9DCF1' }}>Cookie</a>

@@ -1,5 +1,5 @@
 import { Eyebrow } from '@/components/shared/Eyebrow';
-import { PRICING_PLANS } from '@/data/home-content';
+import { PRICING_PLANS, PRICING_NOTE } from '@/data/home-content';
 
 export const Pricing = () => (
   <section id="prezzi" style={{ padding: '80px 0' }}>
@@ -13,8 +13,8 @@ export const Pricing = () => (
       </p>
     </div>
 
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, maxWidth: 960, margin: '0 auto' }}>
-      {PRICING_PLANS.map((plan) => {
+    <div className="pricing-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, maxWidth: 1120, margin: '0 auto', alignItems: 'start' }}>
+      {PRICING_PLANS.map((plan, idx) => {
         const dark = !!plan.dark;
         const titleColor = dark ? '#E9FA49' : '#051A2E';
         const priceColor = dark ? '#fff' : '#051A2E';
@@ -25,6 +25,8 @@ export const Pricing = () => (
         return (
           <div
             key={plan.name}
+            className="pricing-card"
+            data-reveal=""
             style={{
               background: dark ? '#051A2E' : '#fff',
               borderRadius: 32,
@@ -32,6 +34,7 @@ export const Pricing = () => (
               boxShadow: dark ? 'none' : '0 2px 8px rgba(5,26,46,.06)',
               position: 'relative',
               overflow: 'hidden',
+              ['--reveal-delay' as string]: `${idx * 100}ms`,
             }}
           >
             {dark && (
@@ -76,7 +79,7 @@ export const Pricing = () => (
               <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 15, color: titleColor }}>{plan.name}</div>
             </div>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: 4, margin: '8px 0 4px', position: 'relative' }}>
-              <span style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 72, color: priceColor, letterSpacing: '-.03em', lineHeight: 1 }}>
+              <span className="pricing-price" style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 72, color: priceColor, letterSpacing: '-.03em', lineHeight: 1 }}>
                 {plan.price}
               </span>
               <span style={{ fontFamily: 'Roboto,sans-serif', fontSize: 16, color: perColor }}>{plan.per}</span>
@@ -111,7 +114,11 @@ export const Pricing = () => (
       })}
     </div>
 
-    <div style={{ textAlign: 'center', marginTop: 32, fontFamily: 'Roboto,sans-serif', fontSize: 14, color: '#576C80' }}>
+    <div style={{ textAlign: 'center', marginTop: 24, fontFamily: 'Roboto,sans-serif', fontSize: 14, color: '#576C80' }}>
+      {PRICING_NOTE}
+    </div>
+
+    <div style={{ textAlign: 'center', marginTop: 12, fontFamily: 'Roboto,sans-serif', fontSize: 14, color: '#576C80' }}>
       Studente o under 25?{' '}
       <a href="#prenota" style={{ color: '#051A2E', fontWeight: 700, textDecoration: 'underline' }}>
         Sconto 15% — scrivimi.

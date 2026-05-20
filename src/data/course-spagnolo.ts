@@ -26,7 +26,7 @@ export const COURSE: Course = {
   level: 'A2 → B2',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 72,
   price: 420,
   pricePer: 42,
@@ -80,7 +80,7 @@ export const TEACHER_STATS: TeacherStat[] = [
 ];
 
 export const COURSE_REVIEWS: Review[] = [
-  { name: 'Elena P.', role: 'Export manager · Firenze', img: 'image-student-1.jpg', stars: 5, date: '1 mese fa',
+  { name: 'Elena P.', role: 'Export manager · Latina', img: 'image-student-1.jpg', stars: 5, date: '1 mese fa',
     text: 'Gestisco un portafoglio in Messico e Colombia. Dopo questo corso mi sono ritrovata a chiudere una call di 90 minuti senza passare mai all\'inglese. Il modulo sulle differenze regionali è oro.' },
   { name: 'Matteo R.', role: 'Digital nomad · Bogotá', img: 'image-student-4.jpg', stars: 5, date: '3 settimane fa',
     text: 'Ho fatto il corso prima di partire per sei mesi in Colombia. Sono partito con B1 arrugginito e sono tornato con amici. Debora mi ha fatto lavorare sull\'ascolto in modo che altri corsi ignorano.' },

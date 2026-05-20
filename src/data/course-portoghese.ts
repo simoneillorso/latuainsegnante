@@ -26,7 +26,7 @@ export const COURSE: Course = {
   level: 'A1 → B1',
   duration: '12 lezioni',
   lessonLen: '60 min',
-  format: 'online o Firenze',
+  format: 'online o a Latina',
   students: 22,
   price: 400,
   pricePer: 40,
@@ -84,7 +84,7 @@ export const COURSE_REVIEWS: Review[] = [
     text: 'Mi sono trasferito a Lisbona l\'anno scorso. Facevo tutto in inglese, ma mi sentivo sempre fuori. Dopo il corso i colleghi portoghesi iniziano a parlarmi in portoghese spontaneamente. Vittoria.' },
   { name: 'Maria C.', role: 'Pensionata con radici in Alentejo', img: 'image-student-2.jpg', stars: 5, date: '1 mese fa',
     text: 'La mia nonna era di Évora. A 58 anni ho deciso di recuperare. Con Debora è stato un piacere: niente fretta, molta passione. Ora scrivo ai cugini senza traduttore.' },
-  { name: 'Francesco T.', role: 'Architetto · Firenze', img: 'image-student-4.jpg', stars: 5, date: '3 settimane fa',
+  { name: 'Francesco T.', role: 'Architetto · Latina', img: 'image-student-4.jpg', stars: 5, date: '3 settimane fa',
     text: 'Collaborazioni con studio di Porto. Ho imparato abbastanza per gestire call in portoghese — e adesso mi odiano di meno quando mandano documenti da tradurre.' },
 ];
 
