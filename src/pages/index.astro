@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/data/site';
 import { Hero } from '@/components/home/Hero';
 import { TrustStrip } from '@/components/home/TrustStrip';
 import { HowItWorks } from '@/components/home/HowItWorks';
@@ -22,18 +23,20 @@ const jsonLd = {
   description,
   image: 'https://latuainsegnante.com/assets/hero-debora.png',
   url: 'https://latuainsegnante.com',
-  telephone: '+39 055 000 0000',
-  email: 'ciao@latuainsegnante.com',
+  telephone: SITE.phoneSchema,
+  email: SITE.email,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Latina',
-    addressCountry: 'IT',
+    streetAddress: 'Viale dello Statuto 41',
+    postalCode: '04100',
+    addressLocality: SITE.city,
+    addressCountry: SITE.country,
   },
   areaServed: 'Italy',
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
-    reviewCount: '500',
+    reviewCount: '6',
   },
 };
 ---

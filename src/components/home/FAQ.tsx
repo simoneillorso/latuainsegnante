@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import { FAQ_HOME } from '@/data/home-content';
+import { SITE } from '@/data/site';
 
 export const FAQ = () => {
   const [open, setOpen] = useState<number>(0);
@@ -41,7 +42,7 @@ export const FAQ = () => {
             />
             <div>
               <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 14, color: '#051A2E' }}>Scrivimi direttamente</div>
-              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80' }}>ciao@latuainsegnante.com</div>
+              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80' }}>{SITE.email}</div>
             </div>
           </div>
         </div>

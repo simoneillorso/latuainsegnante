@@ -1,4 +1,5 @@
 import { Eyebrow } from '@/components/shared/Eyebrow';
+import { waLink } from '@/data/site';
 
 export const PercorsoCta = () => (
   <section style={{ padding: '0 0 40px' }}>
@@ -68,7 +69,9 @@ export const PercorsoCta = () => (
           Prenota la prima lezione
         </a>
         <a
-          href="#whatsapp"
+          href={waLink()}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             padding: '20px',
             fontSize: 14,

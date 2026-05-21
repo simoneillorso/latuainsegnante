@@ -93,7 +93,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Si può puntare al Goethe B2?', a: 'Con un livello di partenza A2-B1 solido sì. Altrimenti estendiamo di 3-4 lezioni extra, costruendo il percorso su misura.' },
   { q: 'Lavoro in Svizzera. Lo Schwiizerdütsch?', a: 'Parliamo Hochdeutsch, che è la lingua dell\'ufficio anche in Svizzera. Introduciamo però i tratti principali che sentirai in giro.' },
   { q: 'Posso ripetere una lezione?', a: 'Sì. I punti difficili li riprendiamo senza costi extra finché non scorrono.' },
-  { q: 'Rate di pagamento?', a: 'Due o tre rate senza interessi. Basta chiederlo al momento della prenotazione.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con il tuo obiettivo. Concordiamo giorno e ora, e partiamo.' },
 ];
 
 export const RELATED_COURSES: RelatedCourse[] = [

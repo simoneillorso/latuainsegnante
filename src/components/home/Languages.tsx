@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import { LANGS, type Language } from '@/data/languages';
 
-type Filter = 'tutte' | 'popolari';
-
 const LangTile = ({ l, delay }: { l: Language; delay: number }) => {
   const [hover, setHover] = useState(false);
   return (
@@ -102,14 +100,11 @@ const LangTile = ({ l, delay }: { l: Language; delay: number }) => {
 };
 
 export const Languages = () => {
-  const [filter, setFilter] = useState<Filter>('tutte');
-  const filtered = filter === 'popolari' ? LANGS.filter((l) => l.popular) : LANGS;
-
   return (
     <section id="lingue" style={{ padding: '80px 0 40px' }}>
       <div className="lang-header" style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 40, gap: 40, flexWrap: 'wrap' }}>
         <div style={{ maxWidth: 720 }}>
-          <Eyebrow>Dieci lingue</Eyebrow>
+          <Eyebrow>Corsi</Eyebrow>
           <h2 style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 62, lineHeight: 1.05, color: '#051A2E', letterSpacing: '-.02em', margin: '14px 0 16px' }}>
             La lingua giusta
             <br />è quella che ti{' '}
@@ -122,40 +117,13 @@ export const Languages = () => {
             </span>.
           </h2>
           <p style={{ fontFamily: 'Roboto,sans-serif', fontSize: 18, color: '#3A4F63', lineHeight: 1.6, maxWidth: 560, marginTop: 20 }}>
-            Dieci lingue, un'unica insegnante. Qualunque sia il tuo motivo — un viaggio, il lavoro, le radici di famiglia — la affrontiamo insieme, dalla prima parola.
+            Una sola insegnante per dieci lingue. Che sia per un viaggio, per il lavoro o per le tue radici di famiglia, costruiamo insieme il percorso giusto, dalla prima parola fino al tuo obiettivo.
           </p>
-        </div>
-        <div
-          role="tablist"
-          aria-label="Filtro lingue"
-          style={{ display: 'flex', gap: 8, background: '#fff', borderRadius: 99, padding: 6, boxShadow: '0 2px 8px rgba(5,26,46,.06)' }}
-        >
-          {(['tutte', 'popolari'] as const).map((f) => (
-            <button
-              key={f}
-              role="tab"
-              aria-selected={filter === f}
-              onClick={() => setFilter(f)}
-              style={{
-                background: filter === f ? '#051A2E' : 'transparent',
-                color: filter === f ? '#fff' : '#051A2E',
-                padding: '10px 20px',
-                fontSize: 13,
-                fontWeight: 600,
-                borderRadius: 99,
-                border: 0,
-                cursor: 'pointer',
-                fontFamily: 'Urbanist,sans-serif',
-              }}
-            >
-              {f[0]!.toUpperCase() + f.slice(1)}
-            </button>
-          ))}
         </div>
       </div>
 
       <div className="lang-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: 18 }}>
-        {filtered.map((l, i) => (
+        {LANGS.map((l, i) => (
           <LangTile key={l.slug} l={l} delay={i * 50} />
         ))}
       </div>

@@ -88,7 +88,7 @@ export const Hero = () => {
           </h1>
 
           <p style={{ fontFamily: 'Roboto,sans-serif', fontSize: 19, fontWeight: 500, color: '#3A4F63', lineHeight: 1.55, marginTop: 28, maxWidth: 520 }}>
-            Lezioni private 1-a-1 con <b style={{ color: '#051A2E', fontWeight: 700 }}>Debora Vichi</b> — specialista in dieci lingue. Un metodo cucito su di te, senza libri che mettono ansia e senza orari rigidi.
+            Lezioni private 1-a-1 con <b style={{ color: '#051A2E', fontWeight: 700 }}>Debora Vichi</b>. Un metodo costruito sui tuoi obiettivi e sui tuoi tempi, senza libri che mettono ansia e senza orari rigidi.
           </p>
 
           <div className="hero-ctas" style={{ display: 'flex', gap: 12, marginTop: 36, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -99,9 +99,8 @@ export const Hero = () => {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
-            <a href="#come-funziona" className="btn-ghost" style={{ padding: '18px 26px', fontSize: 15, display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-              <img src="/assets/icon-play.png" alt="" style={{ width: 18, height: 18 }} />
-              Guarda come funziona
+            <a href="/corsi" className="btn-ghost" style={{ padding: '18px 26px', fontSize: 15, display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+              Scopri tutti i corsi
             </a>
           </div>
 
@@ -137,7 +136,7 @@ export const Hero = () => {
                   color: '#fff',
                 }}
               >
-                +500
+                +260
               </div>
             </div>
             <div>
@@ -149,7 +148,7 @@ export const Hero = () => {
                 ))}
                 <span style={{ fontFamily: 'Urbanist,sans-serif', fontSize: 14, fontWeight: 700, color: '#051A2E', marginLeft: 4 }}>4.9/5</span>
               </div>
-              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginTop: 2 }}>da oltre 500 studenti felici</div>
+              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginTop: 2 }}>260 studenti hanno imparato una nuova lingua</div>
             </div>
           </div>
         </div>
@@ -228,12 +227,18 @@ export const Hero = () => {
               transition: 'transform .3s ease-out',
             }}
           >
-            <div style={{ width: 44, height: 44, borderRadius: 12, background: '#E9FA49', display: 'grid', placeItems: 'center' }}>
-              <img src="/assets/icon-calendar.png" alt="" style={{ width: 26, height: 26 }} />
+            <div style={{ width: 44, height: 44, borderRadius: 12, background: '#1CB886', display: 'grid', placeItems: 'center', fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 18, color: '#fff' }}>
+              4.9
             </div>
             <div>
-              <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 14, color: '#051A2E' }}>Prossimo slot libero</div>
-              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginTop: 2 }}>giovedì · 18:30</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#FFAE00" aria-hidden="true">
+                    <path d="M12 2l2.9 6.9L22 10l-5 4.9 1.2 7.1L12 18.5 5.8 22 7 14.9 2 10l7.1-1.1z" />
+                  </svg>
+                ))}
+              </div>
+              <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginTop: 3 }}>★ Google · 260+ studenti</div>
             </div>
           </div>
 
@@ -263,7 +268,6 @@ export const Hero = () => {
               </div>
               <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, color: '#051A2E' }}>68%</div>
             </div>
-            <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 12, color: '#576C80', marginTop: 8 }}>+14 parole questa settimana</div>
           </div>
 
           <div className="hero-card-extra" style={{ position: 'absolute', right: 20, top: -10, zIndex: 3, transform: 'rotate(8deg)' }}>

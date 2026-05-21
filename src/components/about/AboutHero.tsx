@@ -56,7 +56,7 @@ export const AboutHero = () => (
         <div
           role="img"
           aria-label="Debora Vichi in primo piano"
-          style={{ position: 'relative', borderRadius: 28, overflow: 'hidden', aspectRatio: '4/5', background: "url('/assets/image-11.jpg') center/cover" }}
+          style={{ position: 'relative', borderRadius: 28, overflow: 'hidden', aspectRatio: '4/5', background: "url('/assets/hero-debora.png') center/cover" }}
         />
         <div
           style={{

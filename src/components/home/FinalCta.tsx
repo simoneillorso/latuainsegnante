@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import { FORM_LANGUAGE_OPTIONS } from '@/data/home-content';
+import { waLink } from '@/data/site';
 
 const checkIcon = (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#051A2E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -54,6 +55,31 @@ export const FinalCta = () => {
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>{checkIcon} 60 min</div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>{checkIcon} Online o Latina</div>
           </div>
+          <a
+            href={waLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              marginTop: 28,
+              padding: '16px 26px',
+              borderRadius: 99,
+              background: '#25D366',
+              color: '#fff',
+              fontFamily: 'Urbanist,sans-serif',
+              fontWeight: 700,
+              fontSize: 15,
+              textDecoration: 'none',
+              boxShadow: '0 8px 20px rgba(37,211,102,.35)',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.52 11.97c-.21.58-1.2 1.11-1.68 1.18-.43.06-.97.09-1.56-.1-.36-.11-.82-.26-1.41-.52-2.48-1.07-4.11-3.57-4.23-3.74-.12-.16-1.01-1.34-1.01-2.56 0-1.22.63-1.82.86-2.07.23-.25.49-.31.66-.31l.48.01c.15 0 .36-.06.56.42.2.5.7 1.72.76 1.84.06.12.1.26.02.43-.08.16-.12.27-.25.41-.12.14-.26.32-.37.43-.12.13-.25.26-.11.51.15.25.64 1.06 1.38 1.72.94.84 1.74 1.11 1.99 1.23.25.13.4.11.54-.06.15-.16.63-.72.79-.97.17-.25.33-.21.56-.13.22.09 1.44.69 1.69.81.25.12.41.18.47.28.07.11.07.6-.14 1.18Z" />
+            </svg>
+            Oppure scrivimi su WhatsApp
+          </a>
         </div>
 
         <form

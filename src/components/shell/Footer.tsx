@@ -14,7 +14,7 @@ const SOCIAL: { label: string; href: string }[] = [
   { label: 'FB', href: SITE.social.facebook },
   { label: 'IN', href: SITE.social.linkedin },
   { label: 'TT', href: SITE.social.tiktok },
-];
+].filter((s) => s.href !== '#');
 
 export const Footer = () => (
   <footer
@@ -61,6 +61,8 @@ export const Footer = () => (
             <a
               key={s.label}
               href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={`Debora Vichi su ${s.label}`}
               style={{
                 width: 36,

@@ -93,7 +93,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'E se perdo una lezione?', a: 'Fino a 24h prima la sposti quando vuoi dal calendario. Oltre, puoi recuperarla con una registrazione personalizzata e un mini task.' },
   { q: 'Fornisci una certificazione finale?', a: 'Al termine ricevi un attestato di partecipazione con livello di partenza, arrivo e una lettera di valutazione spendibile nel CV.' },
   { q: 'Funziona se parto da un livello più basso di B2?', a: 'Ne parliamo nella lezione gratuita. Se sei B1 solido facciamo un warm-up di 3 lezioni dedicate prima di partire col programma.' },
-  { q: 'Posso pagare a rate?', a: 'Sì, in due o tre rate senza interessi. Basta chiederlo quando prenoti.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con il tuo obiettivo. Concordiamo giorno e ora, e partiamo.' },
 ];
 
 export const RELATED_COURSES: RelatedCourse[] = [

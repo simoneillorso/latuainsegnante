@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { Dot } from '@/components/shared/Dot';
 import type { Course } from '@/data/course-types';
-
-type Plan = 'pack' | 'single';
+import { coursePlans } from '@/data/pricing';
+import { waLink } from '@/data/site';
 
 type Props = {
   course: Course;
 };
 
 export const BookingCard = ({ course }: Props) => {
-  const [plan, setPlan] = useState<Plan>('pack');
-  const price = plan === 'pack' ? course.price : course.pricePer;
-  const unit = plan === 'pack' ? 'tutto incluso' : '/ora singola';
+  const plans = coursePlans(course.lang);
+  const [active, setActive] = useState<string>('full');
+  const plan = plans.find((p) => p.key === active) ?? plans[1]!;
+  const intermedio = plans[0]!;
+  const savings = intermedio.perHour * plan.lessons - plan.total;
 
   return (
     <aside
@@ -27,71 +28,20 @@ export const BookingCard = ({ course }: Props) => {
       }}
       aria-label="Informazioni di prenotazione corso"
     >
-      <div
-        style={{
-          position: 'absolute',
-          top: -14,
-          left: 24,
-          background: '#FF09AD',
-          color: '#fff',
-          fontFamily: 'Urbanist,sans-serif',
-          fontWeight: 800,
-          fontSize: 11,
-          letterSpacing: '.08em',
-          textTransform: 'uppercase',
-          padding: '8px 14px',
-          borderRadius: 99,
-          transform: 'rotate(-4deg)',
-          boxShadow: '0 6px 14px rgba(255,9,173,.35)',
-          whiteSpace: 'nowrap',
-          lineHeight: 1,
-        }}
-      >
-        Prossimi posti disponibili
-      </div>
-
       <div style={{ fontFamily: 'Urbanist,sans-serif', fontSize: 12, fontWeight: 700, color: '#576C80', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 8 }}>
-        Prezzo del corso
-      </div>
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 4, flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 56, color: '#051A2E', letterSpacing: '-.03em', lineHeight: 1 }}>
-          €{price}
-        </span>
-        <span style={{ fontFamily: 'Roboto,sans-serif', fontSize: 14, color: '#576C80' }}>{unit}</span>
-      </div>
-      <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginBottom: 20 }}>
-        {plan === 'pack' ? (
-          (() => {
-            const lessons = 12;
-            const perHourInPack = Math.round(course.price / lessons);
-            const savings = course.pricePer * lessons - course.price;
-            if (savings <= 0) return <span>Prezzo chiuso, tutto incluso</span>;
-            return (
-              <span>
-                €{course.pricePer} €<b style={{ color: '#1CB886' }}>{perHourInPack}</b>/ora · risparmi €{savings}
-              </span>
-            );
-          })()
-        ) : (
-          <span>Paghi lezione per lezione</span>
-        )}
+        Scegli il tuo percorso
       </div>
 
-      <div role="tablist" aria-label="Piano di prenotazione" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, background: '#F4F7FA', borderRadius: 14, padding: 4, marginBottom: 22 }}>
-        {(
-          [
-            { k: 'pack', l: 'Pacchetto 12', sub: 'consigliato' },
-            { k: 'single', l: 'Singola', sub: 'senza impegno' },
-          ] as const
-        ).map((p) => (
+      <div role="tablist" aria-label="Percorso" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, background: '#F4F7FA', borderRadius: 14, padding: 4, marginBottom: 22 }}>
+        {plans.map((p) => (
           <button
-            key={p.k}
+            key={p.key}
             role="tab"
-            aria-selected={plan === p.k}
-            onClick={() => setPlan(p.k)}
+            aria-selected={active === p.key}
+            onClick={() => setActive(p.key)}
             style={{
-              background: plan === p.k ? '#fff' : 'transparent',
-              boxShadow: plan === p.k ? '0 2px 6px rgba(5,26,46,.08)' : 'none',
+              background: active === p.key ? '#fff' : 'transparent',
+              boxShadow: active === p.key ? '0 2px 6px rgba(5,26,46,.08)' : 'none',
               border: 0,
               borderRadius: 10,
               padding: '10px 6px',
@@ -99,10 +49,23 @@ export const BookingCard = ({ course }: Props) => {
               textAlign: 'center',
             }}
           >
-            <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, color: '#051A2E' }}>{p.l}</div>
-            <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 11, color: '#576C80', marginTop: 2 }}>{p.sub}</div>
+            <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, color: '#051A2E' }}>{p.key === 'intermedio' ? 'Intermedio' : 'Full'}</div>
+            <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 11, color: '#576C80', marginTop: 2 }}>{p.lessons} lezioni</div>
           </button>
         ))}
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, marginBottom: 4, flexWrap: 'wrap' }}>
+        <span style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 56, color: '#051A2E', letterSpacing: '-.03em', lineHeight: 1 }}>
+          €{plan.perHour}
+        </span>
+        <span style={{ fontFamily: 'Roboto,sans-serif', fontSize: 14, color: '#576C80' }}>/ora</span>
+      </div>
+      <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginBottom: 20 }}>
+        {plan.lessons} lezioni · <b style={{ color: '#051A2E' }}>€{plan.total}</b> · {plan.validity}
+        {savings > 0 && (
+          <span style={{ color: '#1CB886', fontWeight: 700 }}> · risparmi €{savings}</span>
+        )}
       </div>
 
       <div
@@ -110,23 +73,14 @@ export const BookingCard = ({ course }: Props) => {
           background: '#F4F7FA',
           borderRadius: 16,
           padding: '14px 16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: 12,
+          fontFamily: 'Roboto,sans-serif',
+          fontSize: 13,
+          color: '#3A4F63',
           marginBottom: 18,
         }}
       >
-        <div style={{ width: 40, height: 40, borderRadius: 12, background: '#E9FA49', display: 'grid', placeItems: 'center' }}>
-          <img src="/assets/icon-calendar.png" alt="" style={{ width: 22, height: 22 }} />
-        </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, color: '#051A2E' }}>Primo slot libero</div>
-          <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 12, color: '#576C80' }}>giovedì 30 apr · 18:30</div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-          <Dot color="#1CB886" size={6} />
-          <span style={{ fontFamily: 'Urbanist,sans-serif', fontSize: 11, fontWeight: 700, color: '#1CB886' }}>LIBERO</span>
-        </div>
+        Confronto: <b style={{ color: '#051A2E' }}>Intermedio</b> {intermedio.lessons} lezioni a €{intermedio.perHour}/ora ·
+        {' '}<b style={{ color: '#051A2E' }}>Full</b> {plans[1]!.lessons} lezioni a €{plans[1]!.perHour}/ora.
       </div>
 
       <a
@@ -141,7 +95,9 @@ export const BookingCard = ({ course }: Props) => {
         </svg>
       </a>
       <a
-        href="#whatsapp"
+        href={waLink()}
+        target="_blank"
+        rel="noopener noreferrer"
         className="btn-ghost"
         style={{ width: '100%', padding: '16px', fontSize: 14, textDecoration: 'none', display: 'inline-block', textAlign: 'center', boxSizing: 'border-box' }}
       >

@@ -59,7 +59,7 @@ export const HowItWorks = () => (
             >
               <img src={`/assets/icon-${s.icon}.png`} alt="" style={{ width: 32, height: 32 }} />
             </div>
-            <div style={{ fontFamily: 'Urbanist,sans-serif', fontSize: 56, fontWeight: 800, color: '#E7EFF8', letterSpacing: '-.04em', lineHeight: 1 }}>{s.n}</div>
+            <div style={{ fontFamily: 'Urbanist,sans-serif', fontSize: 56, fontWeight: 800, color: '#051A2E', letterSpacing: '-.04em', lineHeight: 1 }}>{s.n}</div>
           </div>
           <h3 style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 26, color: '#051A2E', lineHeight: 1.2, margin: '0 0 10px' }}>{s.title}</h3>
           <p style={{ fontFamily: 'Roboto,sans-serif', fontSize: 15, color: '#3A4F63', lineHeight: 1.6, margin: 0 }}>{s.body}</p>

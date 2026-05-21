@@ -1,4 +1,5 @@
 import { Eyebrow } from '@/components/shared/Eyebrow';
+import { waLink } from '@/data/site';
 
 export const AboutCta = () => (
   <section style={{ padding: '60px 0 20px' }}>
@@ -42,7 +43,9 @@ export const AboutCta = () => (
           Prenota la prima lezione
         </a>
         <a
-          href="#whatsapp"
+          href={waLink()}
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-ghost"
           style={{ padding: '20px', fontSize: 14, whiteSpace: 'nowrap', textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}
         >

@@ -55,7 +55,7 @@ export const Header = ({ activeLabel = 'Home' }: Props) => {
         }}
       >
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 10 }} aria-label="latuainsegnante — home">
-          <img src="/assets/logo-wordmark.png" alt="Debora Vichi — la tua insegnante di lingue" style={{ height: 30 }} />
+          <img src="/assets/logo-debora-vichi.png" alt="Debora Vichi — la tua insegnante di lingue" style={{ height: 44 }} />
         </a>
         <nav className="nav-desktop" aria-label="Principale" style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
           {NAV.map((n) => {

@@ -93,7 +93,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Parto da zero. Bastano 12 lezioni?', a: 'Arrivi a un A2 solido. Se punti a B1 spendibile al lavoro, estendiamo di 4-6 lezioni. Ne parliamo nella chiamata gratuita.' },
   { q: 'Serve per il passaporto portoghese?', a: 'Il test CIPLE A2 è alla portata. Lo prepariamo con simulazioni identiche all\'esame.' },
   { q: 'Mi servono materiali specifici?', a: 'Solo un quaderno. Tutto il resto (audio, PDF, esercizi) lo fornisco io, taglio sulla tua persona.' },
-  { q: 'Posso pagare a rate?', a: 'Sì, due o tre rate senza interessi. Si decide al momento della prenotazione.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con il tuo obiettivo. Concordiamo giorno e ora, e partiamo.' },
 ];
 
 export const RELATED_COURSES: RelatedCourse[] = [

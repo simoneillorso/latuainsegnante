@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import type { Language } from '@/data/languages';
+import { coursePlans } from '@/data/pricing';
 
 type Filter = 'tutte' | 'popolari';
 
@@ -17,7 +18,7 @@ type Props = {
 
 const Card = ({ card }: { card: CourseCard }) => {
   const [hover, setHover] = useState(false);
-  const { lang, price, level, eyebrow } = card;
+  const { lang, level, eyebrow } = card;
   return (
     <a
       href={`/corsi/${lang.slug}`}
@@ -111,7 +112,7 @@ const Card = ({ card }: { card: CourseCard }) => {
             padding: '8px 14px',
           }}
         >
-          da € {price}
+          da €{coursePlans(lang.slug)[1]!.perHour}/ora
         </span>
         <div
           style={{

@@ -6,31 +6,30 @@ export const SITE = {
   name: 'Debora Vichi',
   tagline: 'Insegnante di lingue',
 
-  // TODO(brief): email reale di Debora
-  email: 'ciao@latuainsegnante.com',
+  email: 'deboravichi20@gmail.com',
 
-  // TODO(brief): numero reale (WhatsApp). Formato display e formato wa.me (solo cifre, prefisso incluso).
-  whatsappDisplay: '+39 333 000 0000',
-  whatsappNumber: '39333000000',
-  // TODO(brief): telefono per schema/JSON-LD (formato E.164 con trattini ok)
-  phoneSchema: '+39-333-000-0000',
+  whatsappDisplay: '+39 366 526 7109',
+  whatsappNumber: '393665267109',
+  phoneSchema: '+39-366-526-7109',
 
   city: 'Latina',
   country: 'IT',
-  // TODO(brief): indirizzo studio per lezioni in presenza (via, civico, CAP)
-  address: 'Latina, Italia',
+  address: 'Viale dello Statuto 41, 04100 Latina LT',
 
   responseTime: 'Rispondo entro 24 ore',
-  availability: { days: 'Lun – Sab', hours: '8:00 – 21:00' },
+  availability: { days: 'Lun – Ven', hours: '9:00 – 13:00 · 15:00 – 20:00' },
 
-  // TODO(brief): P.IVA / C.F. reali
-  piva: '06123450480',
+  piva: '03328610591',
 
-  // TODO(brief): URL reali dei profili social (lascia '#' se non esiste il profilo)
+  // tiktok '#' → nessun profilo: il Footer salta gli href '#'
   social: {
-    instagram: '#',
-    facebook: '#',
-    linkedin: '#',
+    instagram: 'https://www.instagram.com/languagespecialist_/',
+    facebook: 'https://www.facebook.com/profile.php?id=100027949437327',
+    linkedin: 'https://www.linkedin.com/in/debora-vichi-22b23b177/',
     tiktok: '#',
   },
 } as const;
+
+// Link WhatsApp con messaggio precompilato. Unico punto di verità per ogni CTA WhatsApp.
+export const waLink = (msg = 'Ciao Debora! Vorrei informazioni sulle lezioni di lingua.') =>
+  `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(msg)}`;

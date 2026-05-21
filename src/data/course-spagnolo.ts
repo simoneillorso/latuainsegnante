@@ -93,7 +93,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Se ho fatto solo scuola di 20 anni fa parto da zero?', a: 'Quasi mai. Nella lezione gratuita facciamo un placement informale. Se serve inseriamo 2-3 lezioni ponte di "riscaldamento".' },
   { q: 'Si può preparare il DELE con questo corso?', a: 'Sì, è la struttura naturale per B2. Per C1 consigliamo un pacchetto esteso — ne parliamo insieme.' },
   { q: 'Posso ripetere una lezione se non mi è chiara?', a: 'Certo. I nodi difficili (congiuntivo, pretéritos) li riprendiamo finché non scorrono, senza costi extra.' },
-  { q: 'Posso pagare a rate?', a: 'Sì, due o tre rate senza interessi. Lo decidiamo al momento della prenotazione.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con il tuo obiettivo. Concordiamo giorno e ora, e partiamo.' },
 ];
 
 export const RELATED_COURSES: RelatedCourse[] = [

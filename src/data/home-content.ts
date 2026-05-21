@@ -7,17 +7,17 @@ export type HowItWorksStep = {
 };
 
 export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
-  { n: '01', title: 'Mi scrivi cosa ti serve', body: 'Due righe bastano: la lingua, il tuo obiettivo, quando puoi studiare. Ti rispondo in 24 ore.', color: '#9E89FB', icon: 'heart' },
-  { n: '02', title: 'Sessione di orientamento', body: '30 minuti insieme per capire il livello di partenza e disegnare il percorso giusto per te.', color: '#E9FA49', icon: 'calendar' },
-  { n: '03', title: 'Si comincia, al tuo ritmo', body: 'Lezioni 1-a-1 online o a Latina. Materiali su misura. Orari flessibili. Progressi visibili.', color: '#1CB886', icon: 'git-merge' },
+  { n: '01', title: 'Mi scrivi cosa ti serve', body: 'Due righe bastano: la lingua, il tuo obiettivo e quando puoi studiare. Ti rispondo in giornata.', color: '#9E89FB', icon: 'heart' },
+  { n: '02', title: 'Costruisco il percorso su di te', body: 'Niente programmi standard: materiali, ritmo e contenuti cuciti sul tuo obiettivo reale.', color: '#FF09AD', icon: 'calendar' },
+  { n: '03', title: 'Si comincia, al tuo ritmo', body: 'Lezioni 1-a-1 online o a Latina. Orari flessibili e progressi che vedi lezione dopo lezione.', color: '#1CB886', icon: 'git-merge' },
 ];
 
 export const CERTIFICATIONS: string[] = [
-  'Cambridge CELTA',
-  'DELE · Instituto Cervantes',
-  'Goethe · C2',
-  'DELF · C1',
-  'CILS · esaminatrice',
+  'Cambridge C2 · CELTA',
+  'DELE C2 · Instituto Cervantes',
+  'Goethe-Zertifikat',
+  'HSK · cinese',
+  'DITALS · italiano L2',
 ];
 
 export type Promise = {
@@ -28,17 +28,17 @@ export type Promise = {
 };
 
 export const EASE_PROMISES: Promise[] = [
-  { icon: 'user-check', color: '#9E89FB', title: 'Un metodo solo per te', body: 'Niente programmi standard. Ogni lezione parte dai tuoi obiettivi reali — colloquio, viaggio, esame, famiglia.' },
-  { icon: 'calendar', color: '#E9FA49', title: 'Orari che rispettano la tua vita', body: 'Lezioni 1-a-1 al mattino, sera, weekend. Sposti quando vuoi, fino a 24h prima.' },
-  { icon: 'heart', color: '#FF09AD', title: 'Senza ansia da libro', body: 'Materiali fatti da me, adatti al tuo livello. Canzoni, podcast, serie che ti piacciono. La lingua che vivi.' },
-  { icon: 'layers', color: '#1CB886', title: 'Progressi che vedi', body: 'Report ogni 4 lezioni. Sai sempre dove sei, dove stai andando e quando arriverai.' },
+  { icon: 'user-check', color: '#9E89FB', title: 'Un metodo cucito su di te', body: 'Niente programmi preconfezionati. Partiamo dal tuo obiettivo reale, colloquio, viaggio, esame o famiglia, e costruiamo solo ciò che ti serve davvero.' },
+  { icon: 'calendar', color: '#E9FA49', title: 'Orari che rispettano la tua vita', body: 'Lezioni 1-a-1 al mattino, di sera o nel weekend. Sposti quando vuoi fino a 24h prima, senza penali e senza stress.' },
+  { icon: 'heart', color: '#FF09AD', title: 'Mai più ansia da libro', body: 'Materiali creati da me sul tuo livello: le canzoni, i podcast e le serie che ami. Impari la lingua che vivi, non quella dei manuali.' },
+  { icon: 'layers', color: '#1CB886', title: 'Progressi che vedi nero su bianco', body: 'Un report di progresso ogni 4 lezioni. Sai sempre dove sei, dove stai andando e quanto manca al traguardo.' },
 ];
 
 export type Stat = { n: string; l: string; c: string };
 
 export const WHY_DEBORA_STATS: Stat[] = [
   { n: '12+', l: 'anni di insegnamento', c: '#9E89FB' },
-  { n: '500+', l: 'studenti seguiti', c: '#E9FA49' },
+  { n: '260+', l: 'studenti seguiti', c: '#E9FA49' },
   { n: '9', l: 'lingue parlate', c: '#1CB886' },
 ];
 
@@ -149,9 +149,9 @@ export type FaqItem = { q: string; a: string };
 export const FAQ_HOME: FaqItem[] = [
   { q: 'Le lezioni sono online o in presenza?', a: 'Entrambe. A Latina ci vediamo nel mio studio. Altrove, su Zoom o Google Meet — con materiali condivisi in tempo reale.' },
   { q: 'Cosa succede se devo spostare una lezione?', a: 'Nessun problema se mi avvisi almeno 24 ore prima. La riprogrammiamo quando vuoi. Tutto tramite un calendario online che gestisci tu.' },
-  { q: 'Posso preparare un esame specifico (IELTS, DELE, Goethe…)?', a: 'Sì. Sono esaminatrice certificata per CILS e ho preparato studenti a IELTS, TOEFL, Cambridge, DELE, DELF, Goethe, TestDaF. Guardiamo la data esame e costruiamo il percorso a ritroso.' },
+  { q: 'Posso preparare un esame specifico (IELTS, DELE, Goethe…)?', a: 'Sì. Ho certificazioni C2 e abilitazioni in più lingue (Cambridge CELTA, DELE C2, Goethe, HSK, DITALS per l\'italiano) e ho preparato studenti a IELTS, TOEFL, Cambridge, DELE, DELF, Goethe, TestDaF. Guardiamo la data esame e costruiamo il percorso a ritroso.' },
   { q: 'Per bambini e ragazzi?', a: 'Lavoro con ragazzi dai 14 anni in su. Per i più piccoli posso consigliarti colleghi specializzati.' },
-  { q: 'Quando pago?', a: 'Prima della prima lezione. Bonifico o PayPal, nessun abbonamento ricorrente.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con la lingua e il tuo obiettivo. Concordiamo giorno e ora, e partiamo. I dettagli pratici li vediamo insieme al primo contatto.' },
 ];
 
 export const FORM_LANGUAGE_OPTIONS: string[] = [

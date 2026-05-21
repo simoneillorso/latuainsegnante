@@ -3,7 +3,7 @@ import type { Stat } from './home-content';
 export const ABOUT_NUMBERS: Stat[] = [
   { n: '20', l: 'anni che studio lingue', c: '#E9FA49' },
   { n: '12', l: 'anni che le insegno', c: '#9E89FB' },
-  { n: '500+', l: 'studenti accompagnati', c: '#FF09AD' },
+  { n: '260+', l: 'studenti accompagnati', c: '#FF09AD' },
   { n: '9', l: 'lingue parlate', c: '#1CB886' },
 ];
 
@@ -40,7 +40,7 @@ export const STORY_CHAPTERS: StoryChapter[] = [
     lesson: '"Facile" è un metodo, non un dono.' },
   { year: 'Oggi', age: '34 anni', color: '#9E89FB', emoji: '🌐',
     title: 'latuainsegnante.com',
-    body: '500 studenti passati dal mio studio, online e dal vivo. Nove lingue insegnate. Un metodo rodato su chi odia studiare, chi non ha tempo, chi ha paura di parlare. E un\'idea ancora più chiara: non ti faccio studiare come a scuola.',
+    body: '260 studenti passati dal mio studio, online e dal vivo. Nove lingue insegnate. Un metodo rodato su chi odia studiare, chi non ha tempo, chi ha paura di parlare. E un\'idea ancora più chiara: non ti faccio studiare come a scuola.',
     lesson: 'Non ti faccio studiare come a scuola.' },
 ];
 
@@ -103,12 +103,23 @@ export const METHOD_PHASES: MethodPhase[] = [
 export type Credential = { t: string; s: string };
 
 export const CREDENTIALS: Credential[] = [
-  { t: 'Cambridge CELTA', s: 'Certified English Language Teaching to Adults' },
-  { t: 'DELE · C2', s: 'Instituto Cervantes de Madrid' },
-  { t: 'Goethe · C2', s: 'Goethe-Institut München' },
-  { t: 'DELF · C1', s: 'Alliance Française' },
-  { t: 'Laurea magistrale', s: 'Lingue orientali · Ca\' Foscari' },
-  { t: 'Esaminatrice CILS', s: 'Università per Stranieri di Siena' },
+  // Certificazioni linguistiche
+  { t: 'Cambridge C2 · CELTA', s: 'Inglese · abilitazione all\'insegnamento' },
+  { t: 'DELE C2 · Instituto Cervantes', s: 'Spagnolo · sede di Roma' },
+  { t: 'Goethe-Zertifikat', s: 'Tedesco' },
+  { t: 'HSK', s: 'Cinese · Hanyu Shuiping Kaoshi' },
+  { t: 'DAF', s: 'Francese' },
+  { t: 'TRKI', s: 'Russo' },
+  { t: 'Celpe-Bras', s: 'Portoghese brasiliano' },
+  { t: 'DAPLE', s: 'Portoghese europeo' },
+  { t: 'ILA', s: 'Arabo' },
+  { t: 'DITALS', s: 'Italiano per stranieri' },
+  // Formazione
+  { t: 'Lingue e Letterature Straniere', s: 'Laurea' },
+  { t: 'Mediazione Linguistica', s: 'Laurea triennale' },
+  { t: 'Lettere Moderne', s: 'Laurea' },
+  { t: 'Giurisprudenza', s: 'Laurea magistrale' },
+  { t: 'Mediatore Culturale', s: 'Master' },
 ];
 
 export const OFF_HOURS_TAGS: string[] = [

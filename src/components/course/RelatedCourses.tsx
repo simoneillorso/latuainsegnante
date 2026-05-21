@@ -1,5 +1,6 @@
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import type { RelatedCourse } from '@/data/course-types';
+import { coursePlans } from '@/data/pricing';
 
 type Props = {
   items: RelatedCourse[];
@@ -41,7 +42,7 @@ export const RelatedCourses = ({ items }: Props) => (
             <h3 style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 22, color: '#051A2E', margin: '8px 0 8px', lineHeight: 1.2 }}>{c.title}</h3>
             <div style={{ fontFamily: 'Roboto,sans-serif', fontSize: 13, color: '#576C80', marginBottom: 16 }}>{c.meta}</div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <span style={{ background: c.color, color: '#051A2E', fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, borderRadius: 99, padding: '8px 14px' }}>{c.price}</span>
+              <span style={{ background: c.color, color: '#051A2E', fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, borderRadius: 99, padding: '8px 14px' }}>da €{coursePlans(c.slug)[1]!.perHour}/ora</span>
               <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 13, color: '#051A2E', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
                 Scopri
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

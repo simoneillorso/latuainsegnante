@@ -93,7 +93,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Posso prepararmi al DELF o DALF?', a: 'Assolutamente. Per DELF B2 bastano le 12 lezioni; per DALF C1 consiglio un\'estensione — ne parliamo nella chiamata gratuita.' },
   { q: 'E se sono rimasto fermo al liceo?', a: 'Niente panico. Nella prima lezione valutiamo insieme. Se serve aggiungiamo un warm-up di 3 lezioni prima del programma.' },
   { q: 'Quanto è orientato al Québec?', a: 'La lezione 9 è dedicata alla francofonia. Se il Québec è il tuo obiettivo principale, adatto l\'intero corso sul francese canadese.' },
-  { q: 'Si può pagare a rate?', a: 'Sì, in due o tre rate senza interessi. Basta chiederlo quando prenoti.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con il tuo obiettivo. Concordiamo giorno e ora, e partiamo.' },
 ];
 
 export const RELATED_COURSES: RelatedCourse[] = [

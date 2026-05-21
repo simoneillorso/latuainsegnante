@@ -93,7 +93,7 @@ export const FAQ_COURSE: FaqItem[] = [
   { q: 'Il corso prepara al CILS o CELI?', a: 'Sì, per B1/B2. Per livelli superiori valutiamo un\'estensione. Ti do simulazioni identiche all\'esame reale.' },
   { q: 'Parlate solo italiano durante le lezioni?', a: 'Quasi sempre sì. All\'inizio uso la tua lingua madre come rete di sicurezza sui punti difficili, poi sempre meno.' },
   { q: 'Posso fare lezioni in presenza a Latina?', a: 'Certo, nello studio di Latina. Oppure online. Spesso facciamo mix.' },
-  { q: 'Rate di pagamento?', a: 'Sì, due o tre rate senza interessi. Si decide insieme al momento della prenotazione.' },
+  { q: 'Come prenoto la prima lezione?', a: 'Mi scrivi dal modulo o su WhatsApp con il tuo obiettivo. Concordiamo giorno e ora, e partiamo.' },
 ];
 
 export const RELATED_COURSES: RelatedCourse[] = [

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import type { Lesson } from '@/data/course-types';
 
@@ -9,6 +9,7 @@ type Props = {
 
 export const Curriculum = ({ lessons, extras }: Props) => {
   const [open, setOpen] = useState<number>(0);
+  const splitAt = Math.ceil(lessons.length / 2);
 
   return (
     <section style={{ padding: '60px 0' }}>
@@ -16,12 +17,12 @@ export const Curriculum = ({ lessons, extras }: Props) => {
         <div style={{ position: 'sticky', top: 110 }}>
           <Eyebrow color="#1CB886">Il programma</Eyebrow>
           <h2 style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 52, lineHeight: 1.05, color: '#051A2E', letterSpacing: '-.02em', margin: '14px 0 18px' }}>
-            Dodici lezioni
-            <br />con un filo rosso
+            Due percorsi,
+            <br />un filo rosso
             <br />chiarissimo.
           </h2>
           <p style={{ fontFamily: 'Roboto,sans-serif', fontSize: 16, color: '#3A4F63', lineHeight: 1.6, margin: '0 0 28px' }}>
-            Ogni lezione parte da un problema reale e finisce con una capacità concreta. Il programma si adatta al tuo settore e al tuo ritmo — queste sono le fondamenta.
+            Ogni lezione parte da un problema reale e finisce con una capacità concreta. Le fondamenta sono il <b>Percorso Intermedio</b>; con il <b>Percorso Full</b> aggiungi gli approfondimenti per arrivare fino in fondo.
           </p>
           <div style={{ background: '#fff', borderRadius: 20, padding: '20px 22px', boxShadow: '0 2px 8px rgba(5,26,46,.06)' }}>
             <div style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 700, fontSize: 14, color: '#051A2E', marginBottom: 14 }}>Incluso in tutte le lezioni</div>
@@ -41,9 +42,18 @@ export const Curriculum = ({ lessons, extras }: Props) => {
             const isOpen = open === i;
             const buttonId = `curriculum-b-${i}`;
             const panelId = `curriculum-p-${i}`;
+            const groupLabel =
+              i === 0 ? 'Percorso Intermedio · le fondamenta' : i === splitAt ? 'Percorso Full · approfondimento' : null;
             return (
+              <Fragment key={l.n}>
+              {groupLabel && (
+                <li role="presentation" style={{ listStyle: 'none', margin: i === 0 ? '0 0 4px' : '20px 0 4px' }}>
+                  <span style={{ fontFamily: 'Urbanist,sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: '.1em', textTransform: 'uppercase', color: i === 0 ? '#1CB886' : '#9E89FB' }}>
+                    {groupLabel}
+                  </span>
+                </li>
+              )}
               <li
-                key={l.n}
                 style={{
                   background: '#fff',
                   borderRadius: 20,
@@ -140,6 +150,7 @@ export const Curriculum = ({ lessons, extras }: Props) => {
                   </div>
                 )}
               </li>
+              </Fragment>
             );
           })}
         </ol>

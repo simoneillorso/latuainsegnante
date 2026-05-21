@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Eyebrow } from '@/components/shared/Eyebrow';
 import type { FaqItem } from '@/data/home-content';
+import { waLink } from '@/data/site';
 
 type Props = {
   faq: FaqItem[];
@@ -21,7 +22,7 @@ export const CourseFAQ = ({ faq }: Props) => {
           </h2>
           <p style={{ fontFamily: 'Roboto,sans-serif', fontSize: 15, color: '#3A4F63', lineHeight: 1.6 }}>
             Non trovi la tua risposta?{' '}
-            <a href="#whatsapp" style={{ color: '#051A2E', fontWeight: 700, textDecoration: 'underline' }}>
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" style={{ color: '#051A2E', fontWeight: 700, textDecoration: 'underline' }}>
               Scrivimi su WhatsApp
             </a>{' '}
             — rispondo entro il giorno.
